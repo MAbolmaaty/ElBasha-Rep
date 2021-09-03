@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="codeztalk.elbasha.delegate"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:name="codeztalk.elbasha.delegate.BashaApp"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="codeztalk.elbasha.delegate.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <activity android:name="codeztalk.elbasha.delegate.activities.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.printer.DeviceListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.stock.StockActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.credit.CreditInvoiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.credit.DeviceCreditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.ReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.AddClientActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.AddInvoiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.AddPocketActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="codeztalk.elbasha.delegate.activities.ClientProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>

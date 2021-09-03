@@ -1,0 +1,318 @@
+codeztalk/elbasha/delegate/aPIS/APIError.java
+ codeztalk.elbasha.delegate.aPIS.APIError
+codeztalk/elbasha/delegate/views/CircleImageView.java
+ codeztalk.elbasha.delegate.views.CircleImageView
+codeztalk/elbasha/delegate/models/fileModel.java
+ codeztalk.elbasha.delegate.models.fileModel
+codeztalk/elbasha/delegate/activities/printer/TaskPrintActivity.java
+ codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity
+codeztalk/elbasha/delegate/activities/stock/DeviceStockActivity.java
+ codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity
+ codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity$1
+ codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity$2
+ codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity$3
+ codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity$4
+codeztalk/elbasha/delegate/adapter/reportsAdapter/Report10Adapter.java
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report10Adapter
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report10Adapter$DataObjectHolder
+codeztalk/elbasha/delegate/helper/PreferenceHelper.java
+ codeztalk.elbasha.delegate.helper.PreferenceHelper
+codeztalk/elbasha/delegate/models/Report9Model.java
+ codeztalk.elbasha.delegate.models.Report9Model
+codeztalk/elbasha/delegate/fragments/reports/Reports9Fragment.java
+ codeztalk.elbasha.delegate.fragments.reports.Reports9Fragment
+ codeztalk.elbasha.delegate.fragments.reports.Reports9Fragment$1
+codeztalk/elbasha/delegate/helper/constants.java
+ codeztalk.elbasha.delegate.helper.constants
+codeztalk/elbasha/delegate/fragments/reports/Reports10Fragment.java
+ codeztalk.elbasha.delegate.fragments.reports.Reports10Fragment
+ codeztalk.elbasha.delegate.fragments.reports.Reports10Fragment$1
+codeztalk/elbasha/delegate/activities/categoryProduct/CategoryProductModel.java
+ codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductModel
+codeztalk/elbasha/delegate/adapter/StockAdapter.java
+ codeztalk.elbasha.delegate.adapter.StockAdapter
+ codeztalk.elbasha.delegate.adapter.StockAdapter$1
+ codeztalk.elbasha.delegate.adapter.StockAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/adapter/ReportAdapter.java
+ codeztalk.elbasha.delegate.adapter.ReportAdapter
+ codeztalk.elbasha.delegate.adapter.ReportAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/adapter/FilePhotoAdapter.java
+ codeztalk.elbasha.delegate.adapter.FilePhotoAdapter
+ codeztalk.elbasha.delegate.adapter.FilePhotoAdapter$1
+ codeztalk.elbasha.delegate.adapter.FilePhotoAdapter$HeaderViewHolder
+ codeztalk.elbasha.delegate.adapter.FilePhotoAdapter$ItemViewHolder
+ codeztalk.elbasha.delegate.adapter.FilePhotoAdapter$ViewHolder
+codeztalk/elbasha/delegate/helper/ConnectivityReceiver.java
+ codeztalk.elbasha.delegate.helper.ConnectivityReceiver
+ codeztalk.elbasha.delegate.helper.ConnectivityReceiver$ConnectivityReceiverListener
+codeztalk/elbasha/delegate/models/Report8Model.java
+ codeztalk.elbasha.delegate.models.Report8Model
+codeztalk/elbasha/delegate/models/EmployeeLocation.java
+ codeztalk.elbasha.delegate.models.EmployeeLocation
+codeztalk/elbasha/delegate/swipereveallayout/ViewBinderHelper.java
+ codeztalk.elbasha.delegate.swipereveallayout.ViewBinderHelper
+ codeztalk.elbasha.delegate.swipereveallayout.ViewBinderHelper$1
+codeztalk/elbasha/delegate/aPIS/requests/AddInvoiceRequest.java
+ codeztalk.elbasha.delegate.aPIS.requests.AddInvoiceRequest
+ codeztalk.elbasha.delegate.aPIS.requests.AddInvoiceRequest$InvoiceProduct
+codeztalk/elbasha/delegate/helper/ProgressDialogHelper.java
+ codeztalk.elbasha.delegate.helper.ProgressDialogHelper
+codeztalk/elbasha/delegate/aPIS/requests/Report1Request.java
+ codeztalk.elbasha.delegate.aPIS.requests.Report1Request
+codeztalk/elbasha/delegate/models/ClientInvoiceModel.java
+ codeztalk.elbasha.delegate.models.ClientInvoiceModel
+ codeztalk.elbasha.delegate.models.ClientInvoiceModel$Products
+codeztalk/elbasha/delegate/swipereveallayout/SwipeRevealLayout.java
+ codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout
+ codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout$1
+ codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout$2
+ codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout$DragStateChangeListener
+ codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout$SimpleSwipeListener
+ codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout$SwipeListener
+codeztalk/elbasha/delegate/activities/credit/DeviceCreditActivity.java
+ codeztalk.elbasha.delegate.activities.credit.DeviceCreditActivity
+ codeztalk.elbasha.delegate.activities.credit.DeviceCreditActivity$1
+ codeztalk.elbasha.delegate.activities.credit.DeviceCreditActivity$2
+ codeztalk.elbasha.delegate.activities.credit.DeviceCreditActivity$3
+ codeztalk.elbasha.delegate.activities.credit.DeviceCreditActivity$4
+codeztalk/elbasha/delegate/views/MyRecyclerView.java
+ codeztalk.elbasha.delegate.views.MyRecyclerView
+ codeztalk.elbasha.delegate.views.MyRecyclerView$1
+codeztalk/elbasha/delegate/models/ProductModel.java
+ codeztalk.elbasha.delegate.models.ProductModel
+codeztalk/elbasha/delegate/aPIS/requests/UpdateClientRequest.java
+ codeztalk.elbasha.delegate.aPIS.requests.UpdateClientRequest
+ codeztalk.elbasha.delegate.aPIS.requests.UpdateClientRequest$UpdateClientDay
+codeztalk/elbasha/delegate/activities/categoryProduct/Product.java
+ codeztalk.elbasha.delegate.activities.categoryProduct.Product
+codeztalk/elbasha/delegate/views/NonSwipeableViewPager.java
+ codeztalk.elbasha.delegate.views.NonSwipeableViewPager
+ codeztalk.elbasha.delegate.views.NonSwipeableViewPager$MyScroller
+codeztalk/elbasha/delegate/fragments/HomeFragment.java
+ codeztalk.elbasha.delegate.fragments.HomeFragment
+ codeztalk.elbasha.delegate.fragments.HomeFragment$1
+ codeztalk.elbasha.delegate.fragments.HomeFragment$2
+ codeztalk.elbasha.delegate.fragments.HomeFragment$3
+codeztalk/elbasha/delegate/activities/HomeActivity.java
+ codeztalk.elbasha.delegate.activities.HomeActivity
+ codeztalk.elbasha.delegate.activities.HomeActivity$1
+ codeztalk.elbasha.delegate.activities.HomeActivity$2
+codeztalk/elbasha/delegate/aPIS/responses/AddCreditResponse.java
+ codeztalk.elbasha.delegate.aPIS.responses.AddCreditResponse
+codeztalk/elbasha/delegate/fragments/reports/Reports8Fragment.java
+ codeztalk.elbasha.delegate.fragments.reports.Reports8Fragment
+ codeztalk.elbasha.delegate.fragments.reports.Reports8Fragment$1
+ codeztalk.elbasha.delegate.fragments.reports.Reports8Fragment$2
+ codeztalk.elbasha.delegate.fragments.reports.Reports8Fragment$3
+codeztalk/elbasha/delegate/aPIS/ApiClient.java
+ codeztalk.elbasha.delegate.aPIS.ApiClient
+codeztalk/elbasha/delegate/models/ClientModel.java
+ codeztalk.elbasha.delegate.models.ClientModel
+codeztalk/elbasha/delegate/helper/BottomNavigationBehavior.java
+ codeztalk.elbasha.delegate.helper.BottomNavigationBehavior
+codeztalk/elbasha/delegate/activities/ReportActivity.java
+ codeztalk.elbasha.delegate.activities.ReportActivity
+ codeztalk.elbasha.delegate.activities.ReportActivity$1
+codeztalk/elbasha/delegate/fragments/reports/Reports6Fragment.java
+ codeztalk.elbasha.delegate.fragments.reports.Reports6Fragment
+ codeztalk.elbasha.delegate.fragments.reports.Reports6Fragment$1
+ codeztalk.elbasha.delegate.fragments.reports.Reports6Fragment$2
+ codeztalk.elbasha.delegate.fragments.reports.Reports6Fragment$3
+codeztalk/elbasha/delegate/aPIS/responses/LoginResponse.java
+ codeztalk.elbasha.delegate.aPIS.responses.LoginResponse
+codeztalk/elbasha/delegate/fragments/PocketFragment.java
+ codeztalk.elbasha.delegate.fragments.PocketFragment
+ codeztalk.elbasha.delegate.fragments.PocketFragment$1
+ codeztalk.elbasha.delegate.fragments.PocketFragment$2
+codeztalk/elbasha/delegate/activities/BaseActivity.java
+ codeztalk.elbasha.delegate.activities.BaseActivity
+codeztalk/elbasha/delegate/adapter/PocketAdapter.java
+ codeztalk.elbasha.delegate.adapter.PocketAdapter
+ codeztalk.elbasha.delegate.adapter.PocketAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/fragments/reports/DashBoardFragment.java
+ codeztalk.elbasha.delegate.fragments.reports.DashBoardFragment
+ codeztalk.elbasha.delegate.fragments.reports.DashBoardFragment$1
+codeztalk/elbasha/delegate/aPIS/requests/AddClientRequest.java
+ codeztalk.elbasha.delegate.aPIS.requests.AddClientRequest
+ codeztalk.elbasha.delegate.aPIS.requests.AddClientRequest$ClientDay
+codeztalk/elbasha/delegate/adapter/DayFilterAdapter.java
+ codeztalk.elbasha.delegate.adapter.DayFilterAdapter
+ codeztalk.elbasha.delegate.adapter.DayFilterAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/activities/ClientProfileActivity.java
+ codeztalk.elbasha.delegate.activities.ClientProfileActivity
+ codeztalk.elbasha.delegate.activities.ClientProfileActivity$1
+ codeztalk.elbasha.delegate.activities.ClientProfileActivity$2
+ codeztalk.elbasha.delegate.activities.ClientProfileActivity$3
+ codeztalk.elbasha.delegate.activities.ClientProfileActivity$4
+codeztalk/elbasha/delegate/adapter/ClientFilterAdapter.java
+ codeztalk.elbasha.delegate.adapter.ClientFilterAdapter
+ codeztalk.elbasha.delegate.adapter.ClientFilterAdapter$1
+ codeztalk.elbasha.delegate.adapter.ClientFilterAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/models/Report6Model.java
+ codeztalk.elbasha.delegate.models.Report6Model
+codeztalk/elbasha/delegate/adapter/Product2SelectedAdapter.java
+ codeztalk.elbasha.delegate.adapter.Product2SelectedAdapter
+ codeztalk.elbasha.delegate.adapter.Product2SelectedAdapter$ViewHolder
+codeztalk/elbasha/delegate/BashaApp.java
+ codeztalk.elbasha.delegate.BashaApp
+codeztalk/elbasha/delegate/activities/printer/DeviceListActivity.java
+ codeztalk.elbasha.delegate.activities.printer.DeviceListActivity
+ codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$1
+ codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$2
+ codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$3
+ codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$4
+codeztalk/elbasha/delegate/fragments/ProfileFragment.java
+ codeztalk.elbasha.delegate.fragments.ProfileFragment
+codeztalk/elbasha/delegate/models/EmployeeModel.java
+ codeztalk.elbasha.delegate.models.EmployeeModel
+codeztalk/elbasha/delegate/models/ReportModel.java
+ codeztalk.elbasha.delegate.models.ReportModel
+codeztalk/elbasha/delegate/models/Report10Model.java
+ codeztalk.elbasha.delegate.models.Report10Model
+codeztalk/elbasha/delegate/aPIS/ApiService.java
+ codeztalk.elbasha.delegate.aPIS.ApiService
+codeztalk/elbasha/delegate/activities/SplashActivity.java
+ codeztalk.elbasha.delegate.activities.SplashActivity
+codeztalk/elbasha/delegate/helper/printerUtil.java
+ codeztalk.elbasha.delegate.helper.printerUtil
+codeztalk/elbasha/delegate/adapter/reportsAdapter/Report9Adapter.java
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report9Adapter
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report9Adapter$DataObjectHolder
+codeztalk/elbasha/delegate/activities/LoginActivity.java
+ codeztalk.elbasha.delegate.activities.LoginActivity
+ codeztalk.elbasha.delegate.activities.LoginActivity$1
+ codeztalk.elbasha.delegate.activities.LoginActivity$2
+codeztalk/elbasha/delegate/models/DayModel.java
+ codeztalk.elbasha.delegate.models.DayModel
+codeztalk/elbasha/delegate/models/Report5Model.java
+ codeztalk.elbasha.delegate.models.Report5Model
+codeztalk/elbasha/delegate/aPIS/requests/ReportRequest.java
+ codeztalk.elbasha.delegate.aPIS.requests.ReportRequest
+codeztalk/elbasha/delegate/models/InvoiceModel.java
+ codeztalk.elbasha.delegate.models.InvoiceModel
+codeztalk/elbasha/delegate/aPIS/FileUtils.java
+ codeztalk.elbasha.delegate.aPIS.FileUtils
+codeztalk/elbasha/delegate/db/ForsahDB.java
+ codeztalk.elbasha.delegate.db.ForsahDB
+codeztalk/elbasha/delegate/BuildConfig.java
+ codeztalk.elbasha.delegate.BuildConfig
+codeztalk/elbasha/delegate/helper/MyContextWrapper.java
+ codeztalk.elbasha.delegate.helper.MyContextWrapper
+codeztalk/elbasha/delegate/adapter/DayAdapter.java
+ codeztalk.elbasha.delegate.adapter.DayAdapter
+ codeztalk.elbasha.delegate.adapter.DayAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/adapter/ProductSelectedAdapter.java
+ codeztalk.elbasha.delegate.adapter.ProductSelectedAdapter
+ codeztalk.elbasha.delegate.adapter.ProductSelectedAdapter$ViewHolder
+codeztalk/elbasha/delegate/adapter/reportsAdapter/Report7Adapter.java
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report7Adapter
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report7Adapter$DataObjectHolder
+codeztalk/elbasha/delegate/helper/ImageSaver.java
+ codeztalk.elbasha.delegate.helper.ImageSaver
+codeztalk/elbasha/delegate/adapter/reportsAdapter/Report8Adapter.java
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report8Adapter
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report8Adapter$DataObjectHolder
+codeztalk/elbasha/delegate/views/MaterialRippleLayout.java
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$1
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$2
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$3
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$4
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$5
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$PerformClickEvent
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$PressedEvent
+ codeztalk.elbasha.delegate.views.MaterialRippleLayout$RippleBuilder
+codeztalk/elbasha/delegate/aPIS/requests/AddCreditRequest.java
+ codeztalk.elbasha.delegate.aPIS.requests.AddCreditRequest
+codeztalk/elbasha/delegate/aPIS/requests/ClientRequest.java
+ codeztalk.elbasha.delegate.aPIS.requests.ClientRequest
+codeztalk/elbasha/delegate/aPIS/responses/AddClientResponse.java
+ codeztalk.elbasha.delegate.aPIS.responses.AddClientResponse
+ codeztalk.elbasha.delegate.aPIS.responses.AddClientResponse$ClientDay
+ codeztalk.elbasha.delegate.aPIS.responses.AddClientResponse$ClientDay$Client
+codeztalk/elbasha/delegate/activities/AddClientActivity.java
+ codeztalk.elbasha.delegate.activities.AddClientActivity
+ codeztalk.elbasha.delegate.activities.AddClientActivity$1
+ codeztalk.elbasha.delegate.activities.AddClientActivity$2
+ codeztalk.elbasha.delegate.activities.AddClientActivity$3
+codeztalk/elbasha/delegate/models/PocketModel.java
+ codeztalk.elbasha.delegate.models.PocketModel
+codeztalk/elbasha/delegate/fragments/CreditInvoicesFragment.java
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$1
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$2
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$3
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$4
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$5
+codeztalk/elbasha/delegate/aPIS/responses/AddInvoiceResponse.java
+ codeztalk.elbasha.delegate.aPIS.responses.AddInvoiceResponse
+ codeztalk.elbasha.delegate.aPIS.responses.AddInvoiceResponse$InvoiceProduct
+ codeztalk.elbasha.delegate.aPIS.responses.AddInvoiceResponse$InvoiceProduct$Invoice
+codeztalk/elbasha/delegate/models/Report7Model.java
+ codeztalk.elbasha.delegate.models.Report7Model
+codeztalk/elbasha/delegate/fragments/BaseFragment.java
+ codeztalk.elbasha.delegate.fragments.BaseFragment
+codeztalk/elbasha/delegate/activities/AddPocketActivity.java
+ codeztalk.elbasha.delegate.activities.AddPocketActivity
+ codeztalk.elbasha.delegate.activities.AddPocketActivity$1
+codeztalk/elbasha/delegate/adapter/reportsAdapter/Report6Adapter.java
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report6Adapter
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report6Adapter$DataObjectHolder
+codeztalk/elbasha/delegate/adapter/reportsAdapter/Report5Adapter.java
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report5Adapter
+ codeztalk.elbasha.delegate.adapter.reportsAdapter.Report5Adapter$DataObjectHolder
+codeztalk/elbasha/delegate/aPIS/LocalStorageProvider.java
+ codeztalk.elbasha.delegate.aPIS.LocalStorageProvider
+codeztalk/elbasha/delegate/fragments/reports/Reports7Fragment.java
+ codeztalk.elbasha.delegate.fragments.reports.Reports7Fragment
+ codeztalk.elbasha.delegate.fragments.reports.Reports7Fragment$1
+ codeztalk.elbasha.delegate.fragments.reports.Reports7Fragment$2
+ codeztalk.elbasha.delegate.fragments.reports.Reports7Fragment$3
+codeztalk/elbasha/delegate/aPIS/responses/NoResponse.java
+ codeztalk.elbasha.delegate.aPIS.responses.NoResponse
+codeztalk/elbasha/delegate/activities/credit/CreditInvoiceActivity.java
+ codeztalk.elbasha.delegate.activities.credit.CreditInvoiceActivity
+codeztalk/elbasha/delegate/activities/stock/StockActivity.java
+ codeztalk.elbasha.delegate.activities.stock.StockActivity
+ codeztalk.elbasha.delegate.activities.stock.StockActivity$1
+ codeztalk.elbasha.delegate.activities.stock.StockActivity$2
+codeztalk/elbasha/delegate/helper/MyHelpers.java
+ codeztalk.elbasha.delegate.helper.MyHelpers
+codeztalk/elbasha/delegate/fragments/reports/Reports5Fragment.java
+ codeztalk.elbasha.delegate.fragments.reports.Reports5Fragment
+ codeztalk.elbasha.delegate.fragments.reports.Reports5Fragment$1
+ codeztalk.elbasha.delegate.fragments.reports.Reports5Fragment$2
+ codeztalk.elbasha.delegate.fragments.reports.Reports5Fragment$3
+codeztalk/elbasha/delegate/adapter/InvoiceAdapter.java
+ codeztalk.elbasha.delegate.adapter.InvoiceAdapter
+ codeztalk.elbasha.delegate.adapter.InvoiceAdapter$1
+ codeztalk.elbasha.delegate.adapter.InvoiceAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/aPIS/requests/AddLocationRequest.java
+ codeztalk.elbasha.delegate.aPIS.requests.AddLocationRequest
+codeztalk/elbasha/delegate/activities/categoryProduct/ProductCategoryAdapter.java
+ codeztalk.elbasha.delegate.activities.categoryProduct.ProductCategoryAdapter
+ codeztalk.elbasha.delegate.activities.categoryProduct.ProductCategoryAdapter$1
+ codeztalk.elbasha.delegate.activities.categoryProduct.ProductCategoryAdapter$2
+ codeztalk.elbasha.delegate.activities.categoryProduct.ProductCategoryAdapter$3
+ codeztalk.elbasha.delegate.activities.categoryProduct.ProductCategoryAdapter$DataObjectHolder
+codeztalk/elbasha/delegate/activities/AddInvoiceActivity.java
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity$1
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity$2
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity$3
+codeztalk/elbasha/delegate/activities/AddInvoiceActivity2.java
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity2
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity2$1
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity2$2
+ codeztalk.elbasha.delegate.activities.AddInvoiceActivity2$3
+codeztalk/elbasha/delegate/adapter/ClientSwipeAdapter.java
+ codeztalk.elbasha.delegate.adapter.ClientSwipeAdapter
+ codeztalk.elbasha.delegate.adapter.ClientSwipeAdapter$1
+ codeztalk.elbasha.delegate.adapter.ClientSwipeAdapter$ViewHolder
+codeztalk/elbasha/delegate/activities/categoryProduct/CategoryProductsActivity.java
+ codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity
+ codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity$1
+ codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity$2
+codeztalk/elbasha/delegate/activities/categoryProduct/CategoryAdapter.java
+ codeztalk.elbasha.delegate.activities.categoryProduct.CategoryAdapter
+ codeztalk.elbasha.delegate.activities.categoryProduct.CategoryAdapter$DataObjectHolder
