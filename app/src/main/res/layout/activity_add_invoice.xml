@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_activity_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/relative_alert"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+
+        <include layout="@layout/toolbar_activity" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/_4sdp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@color/colorRipple"
+                    android:gravity="center"
+                    android:minHeight="@dimen/_36sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/textStyleMidium"
+                        android:layout_width="0dp"
+                        android:layout_weight=".3"
+                        android:gravity="center"
+
+                        android:text="م"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_weight="1.5"
+                        android:text="@string/productName"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <View style="@style/verticalView" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_weight=".6"
+                        android:gravity="center"
+                        android:text="@string/count"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <View style="@style/verticalView" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_weight=".8"
+                        android:gravity="center"
+                        android:text="@string/Price"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <View style="@style/verticalView" />
+
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:layout_width="0dp"
+                        android:layout_weight=".8"
+                        android:gravity="end"
+                        android:text="@string/total"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerProducts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp" />
+
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/clientName" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <TextView
+                        android:id="@+id/textClientName"
+                        style="@style/textStyleInvoice" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linearInvoice"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/invoiceNumber" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+
+                    <EditText
+                        android:id="@+id/editInvoiceNumber"
+                        style="@style/textStyleInvoice" />
+
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/pay" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <RadioGroup
+                        android:id="@+id/RadioGroup"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioCash"
+                            style="@style/myRadioStyle"
+                            android:checked="true"
+                            android:text="@string/payCash"
+                            app:buttonCompat="@null" />
+
+                        <RadioButton
+                            android:id="@+id/radioNoCash"
+                            style="@style/myRadioStyle"
+                            android:text="@string/pay2"
+                            app:buttonCompat="@null" />
+
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/total" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <TextView
+                        android:id="@+id/textTotal"
+                        style="@style/textStyleInvoice" />
+
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/discount" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+
+                    <EditText
+                        android:id="@+id/editDiscount"
+                        style="@style/textStyleInvoice"
+                        android:hint="0.0"
+
+                        android:inputType="numberDecimal" />
+
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/totalDiscount" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <TextView
+                        android:id="@+id/textTotalAfterDiscount"
+                        style="@style/textStyleInvoice" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/tax" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <TextView
+                        android:id="@+id/textTax"
+                        style="@style/textStyleInvoice" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/finalMoney" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <TextView
+                        android:id="@+id/textFinalTotal"
+                        style="@style/textStyleInvoice" />
+
+
+                </LinearLayout>
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/paid" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <EditText
+                        android:id="@+id/editPaid"
+                        style="@style/textStyleInvoice"
+                        android:hint="0"
+                        android:inputType="numberDecimal" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout style="@style/linearInvoice">
+
+                    <TextView
+                        style="@style/textStyleHeader"
+                        android:text="@string/unPaid" />
+
+                    <TextView
+                        style="@style/textStyleRegular"
+                        android:text="\t:\t" />
+
+                    <TextView
+                        android:id="@+id/textUnPaid"
+                        style="@style/textStyleInvoice"
+                        android:hint="0" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linearEditStyleMain"
+                    android:layout_height="@dimen/_105sdp"
+                    android:padding="@dimen/_4sdp">
+
+
+                    <EditText
+                        android:id="@+id/editNotes"
+                        style="@style/editStyleMain"
+                        android:layout_gravity="top"
+                        android:hint="@string/notes"
+
+                        android:inputType="textMultiLine" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/containerNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_button_registration"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp">
+
+
+        <TextView
+            android:id="@+id/textUpdate"
+            style="@style/buttonStyle"
+            android:layout_margin="@dimen/_8sdp"
+            android:layout_weight="1"
+            android:text="@string/update"
+            android:textSize="@dimen/_11sdp" />
+
+        <TextView
+            android:id="@+id/textSend"
+            style="@style/buttonStyle"
+            android:layout_margin="@dimen/_8sdp"
+            android:layout_weight="1"
+
+            android:text="@string/send"
+            android:textSize="@dimen/_11sdp" />
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

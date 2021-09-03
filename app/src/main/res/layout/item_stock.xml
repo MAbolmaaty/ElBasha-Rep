@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearStock"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/appColor"
+    android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:minHeight="@dimen/_28sdp"
+        android:orientation="horizontal">
+
+        <View style="@style/verticalView2" />
+
+        <TextView
+            android:id="@+id/textSerial"
+            style="@style/textStylePrint"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight=".3"
+             android:text="999"
+            android:textSize="@dimen/_10sdp" />
+
+        <View style="@style/verticalView2" />
+
+        <TextView
+            android:id="@+id/textProductName"
+            style="@style/textStylePrint"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="jj"
+
+            android:textSize="@dimen/_10sdp" />
+
+        <View style="@style/verticalView2" />
+
+        <TextView
+            android:id="@+id/textProductEN"
+            style="@style/textStylePrint"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="sssssss"
+            android:textSize="@dimen/_10sdp" />
+
+
+        <View style="@style/verticalView2" />
+
+        <TextView
+            android:id="@+id/textStock1"
+            style="@style/textStylePrint"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            android:gravity="center"
+            android:text="10"
+
+            android:textSize="@dimen/_10sdp" />
+
+        <View style="@style/verticalView2" />
+
+        <TextView
+            android:id="@+id/textStock2"
+            style="@style/textStylePrint"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            android:gravity="center"
+
+            android:text="20"
+            android:textSize="@dimen/_10sdp" />
+
+        <View style="@style/verticalView2" />
+
+        <TextView
+            android:id="@+id/textStock3"
+            style="@style/textStylePrint"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
+            android:gravity="center"
+            android:text="200"
+            android:textSize="@dimen/_10sdp" />
+
+        <View style="@style/verticalView2" />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:background="@color/textColorBlack" />
+
+ </LinearLayout>

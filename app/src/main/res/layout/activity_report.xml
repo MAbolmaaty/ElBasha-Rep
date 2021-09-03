@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar_activity" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            style="@style/linearInvoice"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:padding="@dimen/_4sdp"
+                android:text="@string/from" />
+
+
+            <TextView
+                android:id="@+id/textDateFrom"
+                style="@style/textStyleInvoice" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/linearInvoice"
+            android:layout_marginTop="0dp"
+
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:padding="@dimen/_4sdp"
+                android:text="@string/to" />
+
+
+            <TextView
+                android:id="@+id/textDateTo"
+                style="@style/textStyleInvoice" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageFilter"
+            style="@style/iconStyleMain"
+
+            android:layout_gravity="center"
+            android:src="@drawable/ic_filter" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorRipple"
+        android:orientation="horizontal"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/InvoicesQty"
+
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:text="@string/InvoicesAmount"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:text="@string/InvoicesCashedAmount"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/InvoicesCreditAmount"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/CreditAmount2"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/TotalCollectedAmount"
+            android:textSize="@dimen/_9sdp" />
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerProducts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+       >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/_28sdp"
+                 android:layout_height="@dimen/_44sdp"
+                android:padding="@dimen/_4sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_sum"/>
+
+            <TextView
+                android:id="@+id/textInvoicesQty"
+                style="@style/textStyleRegular"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="2"
+                />
+
+
+        </LinearLayout>
+
+
+        <View style="@style/verticalView" />
+
+        <TextView
+            android:id="@+id/textInvoicesAmount"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp" />
+        <View style="@style/verticalView" />
+
+        <TextView
+            android:id="@+id/textInvoicesCashedAmount"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp" />
+
+        <View style="@style/verticalView" />
+
+        <TextView
+            android:id="@+id/textInvoicesCreditAmount"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+
+            android:textSize="@dimen/_11sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            android:id="@+id/textCreditAmount"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+
+             android:textSize="@dimen/_11sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            android:id="@+id/textTotalCollectedAmount"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+             android:textSize="@dimen/_11sdp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearReport"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/appColor"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/textInvoiceTaxNumber"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_weight=".9"
+            android:gravity="center"
+            android:text="123"
+            />
+
+
+
+        <TextView
+            android:id="@+id/textEmployeeName"
+            android:maxLines="1"
+            android:visibility="gone"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/employeeName"
+
+            />
+
+        <TextView
+            android:id="@+id/textClientName"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:maxLines="1"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/clientName"
+            />
+
+        <TextView
+            android:id="@+id/textIssuedDate"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="10"
+            android:textSize="@dimen/_9sdp"
+            />
+
+
+        <TextView
+            android:id="@+id/textPaidValue"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="10"
+
+            />
+
+        <TextView
+            android:id="@+id/textReminder"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:text="20"
+            />
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".6dp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:background="@color/colorView" />
+
+
+</LinearLayout>

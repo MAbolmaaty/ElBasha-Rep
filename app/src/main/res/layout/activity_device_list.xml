@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appColor"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/title_paired_devices"
+        style="@style/textStyleMidium"
+        android:padding="@dimen/_4sdp"
+        android:visibility="gone"
+        android:text="@string/paired_devices"
+        />
+
+
+    <ListView
+        android:id="@+id/paired_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:stackFromBottom="true" />
+
+
+    <TextView
+        android:id="@+id/title_new_devices"
+        style="@style/textStyleMidium"
+        android:padding="@dimen/_4sdp"
+        android:visibility="gone"
+        android:text="@string/other_devices"
+        />
+
+
+    <ListView
+        android:id="@+id/new_devices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:stackFromBottom="true" />
+
+    <Button
+        android:id="@+id/button_scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="@dimen/_13sdp"
+        android:text="@string/scan" />
+</LinearLayout>

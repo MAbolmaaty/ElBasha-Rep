@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/custom_admin_search1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@color/colorRipple"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingBottom="@dimen/_8sdp">
+
+
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1.7"
+            android:gravity="center"
+            android:text="@string/action_type"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="@string/date"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+
+            android:text="@string/money2"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/previousBalance"
+            android:textSize="@dimen/_9sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/currentBalance"
+            android:textSize="@dimen/_9sdp" />
+
+
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerReport"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp">
+
+
+            <TextView
+                android:id="@+id/textInvoicesNumber"
+                style="@style/textStyleRegular"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/TotalCollectedAmount"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            android:id="@+id/textTotal1"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+
+            android:textSize="@dimen/_11sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            android:id="@+id/textTotal2"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+
+            android:textSize="@dimen/_11sdp" />
+
+        <View style="@style/verticalView" />
+
+
+        <TextView
+            android:id="@+id/textTotal3"
+            style="@style/textStyleRegular"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_11sdp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

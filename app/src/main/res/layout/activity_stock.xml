@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar_search" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/linearInvoice"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:scaleType="centerInside" />
+
+
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:scaleType="centerInside"
+                android:src="@drawable/img_basha"
+                app:tint="@android:color/black" />
+
+
+            <TextView
+                style="@style/textStylePrint"
+                android:layout_gravity="center"
+                android:text="@string/app_name2"
+                android:textSize="@dimen/_14sdp" />
+
+            <LinearLayout
+                style="@style/linearInvoice"
+                android:layout_margin="@dimen/_4sdp">
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:text="@string/stockDate"
+                    android:textSize="@dimen/_9sdp" />
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:text="\t:\t" />
+
+                <TextView
+                    android:id="@+id/textDate"
+                    style="@style/textStylePrint"
+                    android:text="27-12-2020"
+                    android:textSize="@dimen/_9sdp" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3px"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@color/textColorBlack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorRipple"
+                android:gravity="center"
+                android:minHeight="@dimen/_36sdp"
+
+                android:orientation="horizontal">
+
+                <View style="@style/verticalView2" />
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:layout_width="0dp"
+                    android:layout_weight=".3"
+                    android:gravity="center"
+                    android:text="م"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View style="@style/verticalView2" />
+
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+
+                    android:gravity="center"
+                    android:text="@string/stock4"
+                    android:textSize="@dimen/_9sdp" />
+
+                <View style="@style/verticalView2" />
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    android:text="@string/stock5"
+                    android:textSize="@dimen/_9sdp" />
+
+                <View style="@style/verticalView2" />
+
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:gravity="center"
+                    android:text="@string/stock1"
+                    android:textSize="@dimen/_9sdp" />
+
+                <View style="@style/verticalView2" />
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:gravity="center"
+                    android:text="@string/stock2"
+                    android:textSize="@dimen/_9sdp" />
+
+                <View style="@style/verticalView2" />
+
+                <TextView
+                    style="@style/textStylePrint"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight=".5"
+                    android:gravity="center"
+                    android:text="@string/stock3"
+                    android:textSize="@dimen/_9sdp" />
+
+                <View style="@style/verticalView2" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3px"
+                android:background="@color/textColorBlack" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerProducts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                  />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/connect"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="0.3"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/connect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/connect"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_11sdp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="0.5">
+
+            <Button
+                android:id="@+id/task_button_print"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/print"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

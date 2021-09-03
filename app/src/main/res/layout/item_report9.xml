@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearReport"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/appColor"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_12sdp">
+
+        <TextView
+            android:id="@+id/textActionType"
+            android:maxLines="1"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1.7"
+            android:gravity="center"
+            android:text="@string/action_type"
+
+            />
+
+        <TextView
+            android:id="@+id/textActionDate"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:textSize="@dimen/_9sdp"
+
+            android:text="@string/date"
+            />
+
+        <TextView
+            android:id="@+id/textAmount"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:maxLines="1"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/money2"
+            />
+
+        <TextView
+            android:id="@+id/textPreviousBalance"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/previousBalance"
+            android:textSize="@dimen/_9sdp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/textCurrentBalance"
+            style="@style/textStyleSmall"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/currentBalance"
+            android:textSize="@dimen/_9sdp"
+
+            />
+
+
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height=".6dp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:background="@color/colorView" />
+
+
+</LinearLayout>

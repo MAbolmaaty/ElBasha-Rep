@@ -1,0 +1,185 @@
+<resources>
+    <!-- Base application theme. -->
+
+     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="textStyleHeader">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+         <item name="android:textColor">@color/textColorBlack</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="textStyleInvoice">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:layout_weight">1.5</item>
+        <item name="android:background">@drawable/background_edit_text</item>
+        <item name="android:padding">@dimen/_8sdp</item>
+    </style>
+
+    <style name="textStyleSmall" parent="textStyleRegular">
+        <item name="android:textSize">@dimen/_10sdp</item>
+
+    </style>
+
+
+
+    <style name="myRadioStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:button">@null</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawableStart">@drawable/radio_bg</item>
+        <item name="android:drawablePadding">@dimen/_4sdp</item>
+
+    </style>
+
+    <style name="linearInvoice">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+         <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">@dimen/_8sdp</item>
+        <item name="android:gravity">center</item>
+       </style>
+
+    <style name="textStyleMain">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+     </style>
+
+    <style name="textStyleRegular" parent="textStyleMain">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="textStylePrint" parent="textStyleMain">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="fontFamily">@font/arial</item>
+
+    </style>
+
+    <style name="textStyleMidium" parent="textStyleMain">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="editStyleMain">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">@dimen/_3sdp</item>
+        <item name="android:textColor">@color/textColor</item>
+
+
+    </style>
+
+    <style name="linearEditStyleMain">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/background_edit_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">@dimen/_20sdp</item>
+    </style>
+
+    <style name="iconStyleMain">
+        <item name="android:layout_width">@dimen/_35sdp</item>
+        <item name="android:layout_height">@dimen/_35sdp</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:gravity">center</item>
+        <item name="tint">@color/colorAccent</item>
+    </style>
+
+    <style name="iconStyleSmall">
+        <item name="android:layout_width">@dimen/_25sdp</item>
+        <item name="android:layout_height">@dimen/_25sdp</item>
+        <item name="android:padding">@dimen/_5sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="iconStyleAdd">
+        <item name="android:layout_width">@dimen/_40sdp</item>
+        <item name="android:layout_height">@dimen/_40sdp</item>
+        <item name="android:padding">@dimen/_8sdp</item>
+        <item name="android:layout_margin">@dimen/_10sdp</item>
+        <item name="android:background">@drawable/dot</item>
+        <item name="android:tint">@color/white</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+     </style>
+
+    <style name="iconStyleInvoice">
+        <item name="android:layout_width">@dimen/_20sdp</item>
+        <item name="android:layout_height">@dimen/_20sdp</item>
+        <item name="android:padding">@dimen/_4sdp</item>
+        <item name="android:layout_margin">@dimen/_4sdp</item>
+        <item name="android:background">@drawable/background_button</item>
+        <item name="android:tint">@color/white</item>
+
+    </style>
+    <style name="buttonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:padding">@dimen/_8sdp</item>
+        <item name="android:background">@drawable/background_button</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="MyDialog" parent="@android:style/Theme.Translucent.NoTitleBar"/>
+
+
+    <style name="tabSelected">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="tabNotSelected" parent="tabSelected">
+        <item name="android:textColor">@color/textColor</item>
+
+    </style>
+
+    <style name="verticalView" >
+        <item name="android:layout_width">@dimen/_1sdp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/colorView</item>
+
+    </style>
+
+
+    <style name="verticalView2" >
+        <item name="android:layout_width">3px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/textColorBlack</item>
+
+    </style>
+    <style name="textStyleTab" parent="textStyleMain">
+        <item name="android:textColor">@color/colorView</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+
+    </style>
+
+
+</resources>

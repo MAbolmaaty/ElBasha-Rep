@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#00489A</color>
+    <color name="colorPrimaryDark">#013775</color>
+    <color name="colorAccent">#1A68C0</color>
+    <color name="white">#ffffff</color>
+    <color name="appColor">#f7f7f7</color>
+    <color name="md_white">#F1f1f1</color>
+    <color name="textColorBlack">#98000000</color>
+    <color name="textColor">#111111</color>
+    <color name="colorTollBar">#00489A</color>
+    <color name="colorView">#A6A6A6</color>
+    <color name="colorRipple">#e7e7e7</color>
+    <color name="color_delete">#FF3C3C</color>
+    <color name="color_mark">#4caf50</color>
+    <color name="trans_color_grey">#743A3838</color>
+    <color name="trans_color">#9FABABAB</color>
+
+    <color name="orange">#F49423</color>
+
+</resources>

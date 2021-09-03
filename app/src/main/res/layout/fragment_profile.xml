@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/appColor"
+        android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp">
+
+
+        <ImageView
+            android:id="@+id/imageUser2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/picture_placeholder" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:background="@drawable/vertical_gradient" />
+
+        <codeztalk.elbasha.delegate.views.CircleImageView
+            android:id="@+id/imageUser"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/placeholder"
+             app:border_color="@color/colorAccent"
+            app:border_width="@dimen/_2sdp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_margin="@dimen/_8sdp"
+         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textEmployeeName"
+            style="@style/textStyleMidium"
+            android:layout_gravity="center"
+            android:text="@string/clientName2" />
+
+
+        <LinearLayout style="@style/linearInvoice"
+             android:gravity="start"
+             >
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:text="@string/email"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:text="\t:\t" />
+
+            <TextView
+                android:id="@+id/textEmployeeEmail"
+                style="@style/textStyleRegular"
+                 android:textSize="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linearInvoice"
+            android:gravity="start"
+            >
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:text="@string/address"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:text="\t:\t" />
+
+            <TextView
+                android:id="@+id/textEmployeeAddress"
+                style="@style/textStyleRegular"
+                 android:textSize="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout style="@style/linearInvoice"
+            android:gravity="start"
+            >
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:text="@string/Phone"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                style="@style/textStyleRegular"
+                android:text="\t:\t" />
+
+            <TextView
+                android:id="@+id/textEmployeePhone"
+                style="@style/textStyleRegular"
+                android:textSize="@dimen/_10sdp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textPocket"
+                style="@style/textStyleMidium"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/colorAccent"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="@string/pocket" />
+
+            <TextView
+                android:id="@+id/textReportDay"
+                style="@style/textStyleMidium"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
+                android:padding="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="@string/report1" />
+
+            <TextView
+                android:id="@+id/textReportStore"
+                style="@style/textStyleMidium"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="@string/report2" />
+
+
+            <LinearLayout
+                android:visibility="gone"
+                style="@style/linearEditStyleMain">
+
+
+                <EditText
+                    android:id="@+id/editPaperHeight"
+                    style="@style/editStyleMain"
+                    android:padding="@dimen/_8sdp"
+                    android:hint="@string/paperHeight"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textSave"
+                style="@style/textStyleMidium"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:padding="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="@string/save" />
+
+            <TextView
+                android:id="@+id/textReport10"
+                android:visibility="gone"
+                style="@style/textStyleMidium"
+                android:layout_width="match_parent"
+                android:textColor="@color/white"
+                android:background="@color/colorAccent"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:padding="@dimen/_8sdp"
+                android:gravity="center"
+                android:text="@string/report10" />
+
+
+        </LinearLayout>
+
+
+
+        <!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/_12sdp"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                 android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/textReportDay"-->
+<!--                    style="@style/textStyleHeader"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:padding="@dimen/_8sdp"-->
+<!--                    android:layout_margin="@dimen/_1sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/report1" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/textReportStore"-->
+<!--                    style="@style/textStyleHeader"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:background="@color/colorAccent"-->
+<!--                    android:layout_margin="@dimen/_1sdp"-->
+<!--                    android:padding="@dimen/_8sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/report2" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/textPocket"-->
+<!--                    style="@style/textStyleHeader"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:background="@color/colorAccent"-->
+<!--                    android:padding="@dimen/_8sdp"-->
+<!--                    android:layout_margin="@dimen/_1sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="@string/pocket" />-->
+
+<!--                <TextView-->
+<!--                    style="@style/textStyleHeader"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:layout_margin="@dimen/_1sdp"-->
+<!--                    android:padding="@dimen/_8sdp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="التقرير الجديد" />-->
+
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+
+
+        <LinearLayout
+            android:id="@+id/linearAction"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             android:orientation="horizontal">
+
+            <TextView
+                style="@style/buttonStyle"
+                android:layout_margin="@dimen/_4sdp"
+                android:layout_weight="1"
+                 android:text="@string/report1" />
+
+            <TextView
+                style="@style/buttonStyle"
+                android:layout_margin="@dimen/_4sdp"
+                android:layout_weight="1"
+                 android:text="@string/report2" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearToolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     android:orientation="horizontal"
+      android:padding="@dimen/_5sdp">
+
+
+    <LinearLayout
+        style="@style/linearEditStyleMain"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:layout_weight="1"
+        android:background="@drawable/background_edit_text">
+
+        <ImageView
+            android:id="@+id/imageSearch"
+            style="@style/iconStyleMain"
+            android:src="@drawable/ic_search" />
+
+        <EditText
+            android:id="@+id/editSearch"
+            style="@style/editStyleMain"
+            android:hint="@string/search"
+            android:imeOptions="actionSearch"
+            android:inputType="textPersonName"
+
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageFilter"
+        style="@style/iconStyleMain"
+        android:visibility="gone"
+         android:src="@drawable/ic_filter" />
+
+</LinearLayout>
+
+
