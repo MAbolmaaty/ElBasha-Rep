@@ -64,12 +64,12 @@
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\dot.xml"
     },
     {
-        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_add.png.flat",
-        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_add.png"
-    },
-    {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_pocket.png.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_pocket.png"
+    },
+    {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_add.png.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_add.png"
     },
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-ldpi_ic_back.png.flat",
@@ -176,6 +176,10 @@
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_filter.png"
     },
     {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_cancel.png.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\ic_cancel.png"
+    },
+    {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxhdpi_ic_bill.png.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_bill.png"
     },
@@ -198,6 +202,10 @@
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-xxxhdpi_ic_filter.png.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_filter.png"
+    },
+    {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_bg_oval.xml.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\bg_oval.xml"
     },
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_bluetooth.png.flat",
@@ -304,6 +312,10 @@
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\layout\\item_report9.xml"
     },
     {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_check.png.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\ic_check.png"
+    },
+    {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_device_list.xml.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\layout\\activity_device_list.xml"
     },
@@ -322,6 +334,10 @@
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-xhdpi_ic_person.png.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_person.png"
+    },
+    {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_printer.png.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\ic_printer.png"
     },
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",

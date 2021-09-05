@@ -2269,6 +2269,7 @@ drawable background_button
 drawable background_edit_text
 drawable background_transparent
 drawable bg_button_registration
+drawable bg_oval
 drawable bg_rectangle_primary
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -2314,6 +2315,8 @@ drawable ic_back
 drawable ic_baseline_notifications
 drawable ic_bill
 drawable ic_bluetooth
+drawable ic_cancel
+drawable ic_check
 drawable ic_close
 drawable ic_date
 drawable ic_delete
@@ -2331,6 +2334,7 @@ drawable ic_mtrl_chip_close_circle
 drawable ic_person
 drawable ic_phone
 drawable ic_pocket
+drawable ic_printer
 drawable ic_search
 drawable ic_sum
 drawable ic_upload
@@ -2601,6 +2605,10 @@ id hideable
 id home
 id homeAsUp
 id honorRequest
+id icCheck
+id icCheckFrame
+id icPrinter
+id icPrinterFrame
 id icon
 id icon_group
 id icon_only
@@ -2718,6 +2726,7 @@ id percent
 id pin
 id position
 id postLayout
+id printerName
 id progressBar_printers
 id progress_bar
 id progress_circular
@@ -3203,6 +3212,7 @@ string balancePrice2
 string bottom_sheet_behavior
 string box2
 string call
+string change_printer
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern

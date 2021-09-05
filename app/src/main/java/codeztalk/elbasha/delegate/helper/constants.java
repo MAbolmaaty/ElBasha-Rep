@@ -44,5 +44,7 @@ public class constants {
     public static final String report9 = "api/Report/GetEmployeePocket";
     public static final String report10 = "api/Report/GetEmployeeStatement";
 
+    public static final String PRINTER_NAME = "printer_name";
+    public static final String PRINTER_MAC_ADDRESS = "printer_mac_address";
 
 }

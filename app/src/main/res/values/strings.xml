@@ -114,6 +114,7 @@
     <string name="none_paired">غير متصل</string>
     <string name="connect">اتصل</string>
     <string name="connected">متصل</string>
+    <string name="change_printer">تغير الطابعة</string>
     <string name="date">التاريخ</string>
     <string name="stockDate">تقرير المخزن بتاريخ   </string>
 

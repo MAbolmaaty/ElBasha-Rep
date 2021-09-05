@@ -345,12 +345,9 @@
             style="@style/buttonStyle"
             android:layout_margin="@dimen/_8sdp"
             android:layout_weight="1"
-
             android:text="@string/send"
             android:textSize="@dimen/_11sdp" />
-
     </LinearLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

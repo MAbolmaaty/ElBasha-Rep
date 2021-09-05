@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
+
 public class PreferenceHelper {
 
     private final String isLogged = "isUserLogged";
@@ -247,4 +249,20 @@ public class PreferenceHelper {
 
     }
 
+    public void setPrinter(ConnectedDevice printer){
+        SharedPreferences.Editor edit = app_prefs.edit();
+        edit.putString(constants.PRINTER_NAME, printer.getName());
+        edit.putString(constants.PRINTER_MAC_ADDRESS, printer.getMacAddress());
+        edit.apply();
+    }
+
+    public ConnectedDevice getPrinter(){
+        ConnectedDevice connectedDevice = null;
+        String name = app_prefs.getString(constants.PRINTER_NAME, null);
+        String macAddress = app_prefs.getString(constants.PRINTER_MAC_ADDRESS, null);
+        if (name != null && macAddress != null){
+            connectedDevice = new ConnectedDevice(name, macAddress);
+        }
+        return connectedDevice;
+    }
 }

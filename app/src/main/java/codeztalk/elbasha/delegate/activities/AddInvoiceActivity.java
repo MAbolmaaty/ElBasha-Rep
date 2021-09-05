@@ -47,14 +47,10 @@ import static codeztalk.elbasha.delegate.helper.ProgressDialogHelper.showSimpleP
 
 
 public class AddInvoiceActivity extends BaseActivity {
-
-
+    private static final String TAG = AddInvoiceActivity.class.getSimpleName();
     private RecyclerView recyclerProducts;
-
     ProductSelectedAdapter hoursOfflineAdapter;
     ArrayList<Product> hoursOfflineArrayList;
-
-
     TextView textClientName;
     public TextView textTotal;
     TextView textTax;
@@ -63,19 +59,13 @@ public class AddInvoiceActivity extends BaseActivity {
     TextView textUnPaid;
     TextView textUpdate;
     TextView textSend;
-
     EditText editPaid;
     EditText editDiscount;
     //    EditText editInvoiceNumber;
     EditText editNotes;
-
-
     ForsahDB db;
-
     ClientModel clientModel;
     InvoiceModel invoiceModel;
-
-
     boolean isCash = true;
 
 
@@ -93,7 +83,7 @@ public class AddInvoiceActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_invoice);
-
+        Log.d(TAG, "AddInvoiceActivity created");
         db = new ForsahDB(this);
         clientModel = (ClientModel) getIntent().getSerializableExtra("clientModel");
 
@@ -409,7 +399,8 @@ public class AddInvoiceActivity extends BaseActivity {
 
             ApiService apiInterface = ApiClient.getClient().create(ApiService.class);
 
-            Call<AddInvoiceResponse> call = apiInterface.addNewInvoice(preferenceHelper.getUserToken(), addInvoiceRequest);
+            Call<AddInvoiceResponse> call =
+                    apiInterface.addNewInvoice(preferenceHelper.getUserToken(), addInvoiceRequest);
 
 
             call.enqueue(new Callback<AddInvoiceResponse>() {

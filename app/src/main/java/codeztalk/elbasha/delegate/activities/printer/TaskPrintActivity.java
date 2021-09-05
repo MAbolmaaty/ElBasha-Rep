@@ -1,8 +1,11 @@
 package codeztalk.elbasha.delegate.activities.printer;
 
-import android.app.Activity;
+import static codeztalk.elbasha.delegate.helper.printerUtil.imageWidth;
+import static codeztalk.elbasha.delegate.helper.printerUtil.paperWidth;
+import static codeztalk.elbasha.delegate.helper.printerUtil.printerDensity;
+import static codeztalk.elbasha.delegate.helper.printerUtil.printerSpeed;
+
 import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -11,11 +14,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,50 +40,33 @@ import codeztalk.elbasha.delegate.adapter.Product2SelectedAdapter;
 import codeztalk.elbasha.delegate.adapter.ProductSelectedAdapter;
 import codeztalk.elbasha.delegate.db.ForsahDB;
 import codeztalk.elbasha.delegate.helper.MyHelpers;
+import codeztalk.elbasha.delegate.helper.PreferenceHelper;
 import codeztalk.elbasha.delegate.models.ClientInvoiceModel;
 import codeztalk.elbasha.delegate.models.ClientModel;
 import codeztalk.elbasha.delegate.models.InvoiceModel;
 
-import static codeztalk.elbasha.delegate.helper.printerUtil.imageWidth;
-import static codeztalk.elbasha.delegate.helper.printerUtil.paperWidth;
-import static codeztalk.elbasha.delegate.helper.printerUtil.printerDensity;
-import static codeztalk.elbasha.delegate.helper.printerUtil.printerSpeed;
-
 
 public class TaskPrintActivity extends BaseActivity {
-
+    private static final String TAG = TaskPrintActivity.class.getSimpleName();
     TSCActivity TscDll;
     Button scan, connect, task_button_print;
-
     BluetoothAdapter mBluetoothAdapter = null;
-
-    public static String address;
     public static boolean deviceConnected = false;
     public boolean connected = false;
     // Intent request codes
     private static final int REQUEST_CONNECT_DEVICE = 1;
     private static final int REQUEST_ENABLE_BT = 2;
-
     int quantityNo = 1;
-
-
     LinearLayout linearInvoice;
-
-
     ProductSelectedAdapter hoursOfflineAdapter;
     ArrayList<Product> hoursOfflineArrayList;
-
     Product2SelectedAdapter product2SelectedAdapter;
     ClientInvoiceModel clientInvoiceModel;
-
     ForsahDB db;
     InvoiceModel invoiceModel;
     ClientModel clientModel;
     RecyclerView recyclerProducts;
-
     private Thread mPrintThread;
-
-
     TextView textDate;
     TextView textTime;
     TextView textInvoiceNumber;
@@ -91,18 +76,26 @@ public class TaskPrintActivity extends BaseActivity {
     TextView textTotalAfter;
     TextView textTotalAfterDiscount;
     TextView textDiscount;
-
     TextView textType;
     TextView textDelegateName;
     TextView textPaid;
     TextView textUnPaid;
-
+    FrameLayout mIcPrinterFrame;
+    TextView mPrinterName;
+    FrameLayout mIcCheckFrame;
+    public PreferenceHelper mPreferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_print);
 
+        Log.d(TAG, "TaskPrintActivity created");
+        mIcPrinterFrame = findViewById(R.id.icPrinterFrame);
+        mPrinterName = findViewById(R.id.printerName);
+        mIcCheckFrame = findViewById(R.id.icCheckFrame);
+
+        mPreferenceHelper = new PreferenceHelper(this);
 
         clientInvoiceModel = (ClientInvoiceModel) getIntent().getSerializableExtra("clientInvoiceModel");
         invoiceModel = (InvoiceModel) getIntent().getSerializableExtra("invoiceModel");
@@ -152,20 +145,42 @@ public class TaskPrintActivity extends BaseActivity {
         //scan button
         scan.setOnClickListener(view ->
         {
-            if (connected) {
-                Toast.makeText(TaskPrintActivity.this, "Already Connected!", Toast.LENGTH_LONG).show();
-            } else {
-                startDiscovery();
+            if (TscDll.IsConnected) {
+                TscDll.closeport();
             }
+            startDiscovery();
+//            if (connected) {
+//                Toast.makeText(TaskPrintActivity.this, "Already Connected!", Toast.LENGTH_LONG).show();
+//            } else {
+//                startDiscovery();
+//            }
         });
-        task_button_print.setOnClickListener(v -> shareImage(linearInvoice));
+        task_button_print.setOnClickListener(v -> {
+            Log.d(TAG, "print button clicked");
+            shareImage(linearInvoice);
+        });
 //        scan.setOnClickListener(v -> shareImage(linearInvoice));
 
         initializeInvoice();
-
-
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mPreferenceHelper.getPrinter() != null) {
+            mPrinterName.setText(mPreferenceHelper.getPrinter().getName());
+            mIcPrinterFrame.setVisibility(View.VISIBLE);
+            mPrinterName.setVisibility(View.VISIBLE);
+            mIcCheckFrame.setVisibility(View.VISIBLE);
+            scan.setText(getString(R.string.change_printer));
+            task_button_print.setVisibility(View.VISIBLE);
+            TscDll.openport(mPreferenceHelper.getPrinter().getMacAddress());
+            connected = true;
+        } else {
+            scan.setText(getString(R.string.connect));
+            task_button_print.setVisibility(View.GONE);
+        }
+    }
 
     void initializeInvoice() {
 
@@ -270,11 +285,10 @@ public class TaskPrintActivity extends BaseActivity {
 
         super.onDestroy();
         try {
-            if (connected)
-            {
+            if (connected) {
                 connected = false;
                 TscDll.closeport();
-                TscDll = null;
+                //TscDll = null;
             }
 
 
@@ -318,33 +332,30 @@ public class TaskPrintActivity extends BaseActivity {
                 Looper.prepare();
 
 
-                if (address != null && !address.equals("")) {
-                    if (!connected) {
-
-                        TscDll.openport(address);
-                    }
-                    TscDll.downloadpcx("UL.PCX");
-                    try {
+                if (!connected) {
+                    Log.d(TAG, "Before print: " + mPreferenceHelper.getPrinter().getName());
+                    TscDll.openport(mPreferenceHelper.getPrinter().getMacAddress());
+                }
+                TscDll.downloadpcx("UL.PCX");
+                try {
 
 //                        TscDll.setup(paperWidth, 200, printerSpeed, printerDensity, 0, 0, 0);
-                        TscDll.setup(paperWidth, Math.round(getPaperHeight()), printerSpeed, printerDensity, 0, 0, 0);
-                        TscDll.clearbuffer();
-                        TscDll.sendcommand("PUTPCX 100,300,\"UL.PCX\"\n");
+                    TscDll.setup(paperWidth, Math.round(getPaperHeight()),
+                            printerSpeed, printerDensity, 0, 0, 0);
+                    TscDll.clearbuffer();
+                    TscDll.sendcommand("PUTPCX 100,300,\"UL.PCX\"\n");
 
 
 //                        TscDll.sendbitmap_resize(0, 0, bitmap, imageWidth, 1500);
-                        TscDll.sendbitmap_resize(0, 0, bitmap, imageWidth, Math.round(getImageHeight()));
+                    TscDll.sendbitmap_resize(0, 0, bitmap,
+                            imageWidth, Math.round(getImageHeight()));
 //                        TscDll.sendbitmap(0, 0, bitmap);
 
-                        TscDll.printlabel(1, quantityNo);
+                    TscDll.printlabel(1, quantityNo);
 //                        TscDll.closeport();
 
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                } else {
-                    Toast.makeText(TaskPrintActivity.this, "Please connect to printer first.", Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
 
@@ -386,19 +397,20 @@ public class TaskPrintActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (mBluetoothAdapter.isEnabled())
-        {
+        if (TscDll.IsConnected)
+            TscDll.closeport();
+        if (mBluetoothAdapter.isEnabled()) {
             try {
                 if (connected) {
                     connected = false;
                     TscDll.closeport();
-                    TscDll = null;
+                    //TscDll = null;
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            mBluetoothAdapter.disable();
+            //mBluetoothAdapter.disable();
         }
 
         if (invoiceModel != null) {
@@ -408,51 +420,10 @@ public class TaskPrintActivity extends BaseActivity {
         finish();
     }
 
-    boolean bDiscoveryStarted = false;
-
     void startDiscovery() {
-        if (bDiscoveryStarted)
-            return;
-        bDiscoveryStarted = true;
         // Launch the DeviceListActivity to see devices and do scan
-        Intent serverIntent = new Intent(this, DeviceListActivity.class);
-        startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == REQUEST_CONNECT_DEVICE) {
-
-            //addLog("onActivityResult: requestCode==REQUEST_CONNECT_DEVICE");
-            // When DeviceListActivity returns with a device to connect
-            if (resultCode == Activity.RESULT_OK) {
-                //addLog("resultCode==OK");
-
-                // Get the device MAC address
-                String addres = data.getExtras().getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
-                //addLog("onActivityResult: got device=" + address);
-
-
-                if (addres != null) {
-                    TscDll.openport(address);
-                    connected = true;
-                }
-
-                if (deviceConnected || addres != null) {
-                    scan.setText(getString(R.string.connected));
-                    task_button_print.setVisibility(View.VISIBLE);
-                } else {
-                    scan.setText(getString(R.string.connect));
-                    task_button_print.setVisibility(View.GONE);
-                }
-            }
-
-            bDiscoveryStarted = false;
-
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
+        Intent intent = new Intent(this, DeviceListActivity.class);
+        startActivity(intent);
     }
 
 

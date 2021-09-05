@@ -3,15 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/bg_oval.xml" value="0.2712820512820513" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/aa.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_add_invoice.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_category_products.xml" value="0.259375" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_device_list.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_splash.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_task_print.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/fragment_home.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/row_list.xml" value="0.259375" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/toolbar_activity.xml" value="0.259375" />
       </map>
     </option>
   </component>

@@ -19,14 +19,18 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import codeztalk.elbasha.delegate.R;
+import codeztalk.elbasha.delegate.helper.PreferenceHelper;
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
 
 public class DeviceListActivity extends AppCompatActivity {
-    // Debugging
-
-
+    private static final String TAG = DeviceListActivity.class.getSimpleName();
+    private List<ConnectedDevice> mPairedDevices = new ArrayList<>();
+    private List<ConnectedDevice> mNewDevices = new ArrayList<>();
     // Return Intent extra
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
 
@@ -39,6 +43,8 @@ public class DeviceListActivity extends AppCompatActivity {
     String scanButtonTextScan = "Scan";
     String scanButtonTextStop = "STOP";
 
+    public PreferenceHelper mPreferenceHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +52,7 @@ public class DeviceListActivity extends AppCompatActivity {
         // Setup the window
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_device_list);
+        Log.d(TAG, "DeviceListActivity created");
 
         // Set result CANCELED incase the user backs out
         setResult(Activity.RESULT_CANCELED);
@@ -55,6 +62,8 @@ public class DeviceListActivity extends AppCompatActivity {
         mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.item_device_name);
         mNewDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.item_device_name);
 
+        mPreferenceHelper = new PreferenceHelper(this);
+
         // Find and set up the ListView for paired devices
         ListView pairedListView =  findViewById(R.id.paired_devices);
         pairedListView.setAdapter(mPairedDevicesArrayAdapter);
@@ -63,19 +72,8 @@ public class DeviceListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mBtAdapter.cancelDiscovery();
 
-                // Get the device MAC address, which is the last 17 chars in the View
-                String info = ((TextView) view).getText().toString();
-                TaskPrintActivity.address = info.substring(info.length() - 17);
+                mPreferenceHelper.setPrinter(mPairedDevices.get(position));
 
-                Log.e("info"," >> "+info);
-
-                // Create the result Intent and include the MAC address
-                Intent intent = new Intent();
-                intent.putExtra(EXTRA_DEVICE_ADDRESS, TaskPrintActivity.address);
-
-                //addLog("setResult=OK");
-                // Set result and finish this Activity
-                setResult(Activity.RESULT_OK, intent);
                 finish();
 
             }
@@ -89,17 +87,8 @@ public class DeviceListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mBtAdapter.cancelDiscovery();
 
-                // Get the device MAC address, which is the last 17 chars in the View
-                String info = ((TextView) view).getText().toString();
-                TaskPrintActivity.address = info.substring(info.length() - 17);
+                mPreferenceHelper.setPrinter(mNewDevices.get(position));
 
-                // Create the result Intent and include the MAC address
-                Intent intent = new Intent();
-                intent.putExtra(EXTRA_DEVICE_ADDRESS, TaskPrintActivity.address);
-
-                //addLog("setResult=OK");
-                // Set result and finish this Activity
-                setResult(Activity.RESULT_OK, intent);
                 finish();
 
             }
@@ -165,12 +154,15 @@ public class DeviceListActivity extends AppCompatActivity {
 
         // Get a set of currently paired devices
         Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
+        Log.d(TAG, "Bonded Devices : " + mBtAdapter.getBondedDevices());
+
 
         // If there are paired devices, add each one to the ArrayAdapter
         if (pairedDevices.size() > 0) {
             findViewById(R.id.title_paired_devices).setVisibility(View.VISIBLE);
             for (BluetoothDevice device : pairedDevices) {
                 mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                mPairedDevices.add(new ConnectedDevice(device.getName(), device.getAddress()));
             }
         } else {
             String noDevices = getResources().getText(R.string.none_paired).toString();
@@ -246,6 +238,7 @@ public class DeviceListActivity extends AppCompatActivity {
                 if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
                     // addLog("adding new bonded device: " + device.getName() + " " + device.getAddress());
                     mNewDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                    mNewDevices.add(new ConnectedDevice(device.getName(), device.getAddress()));
                 }
                 // When discovery is finished, change the Activity title
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {

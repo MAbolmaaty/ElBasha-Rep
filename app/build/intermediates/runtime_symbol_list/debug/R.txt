@@ -2268,6 +2268,7 @@ int drawable background_button 0x7f07005f
 int drawable background_edit_text 0x7f070060
 int drawable background_transparent 0x7f070061
 int drawable bg_button_registration 0x7f070062
+int drawable bg_oval 0x7f0700cc
 int drawable bg_rectangle_primary 0x7f070063
 int drawable btn_checkbox_checked_mtrl 0x7f070064
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f070065
@@ -2313,6 +2314,8 @@ int drawable ic_back 0x7f07008c
 int drawable ic_baseline_notifications 0x7f07008d
 int drawable ic_bill 0x7f07008e
 int drawable ic_bluetooth 0x7f07008f
+int drawable ic_cancel 0x7f0700ce
+int drawable ic_check 0x7f0700cf
 int drawable ic_close 0x7f070090
 int drawable ic_date 0x7f070091
 int drawable ic_delete 0x7f070092
@@ -2330,6 +2333,7 @@ int drawable ic_mtrl_chip_close_circle 0x7f07009d
 int drawable ic_person 0x7f07009e
 int drawable ic_phone 0x7f07009f
 int drawable ic_pocket 0x7f0700a0
+int drawable ic_printer 0x7f0700cd
 int drawable ic_search 0x7f0700a1
 int drawable ic_sum 0x7f0700a2
 int drawable ic_upload 0x7f0700a3
@@ -2600,6 +2604,10 @@ int id hideable 0x7f0900db
 int id home 0x7f0900dc
 int id homeAsUp 0x7f0900dd
 int id honorRequest 0x7f0900de
+int id icCheck 0x7f090241
+int id icCheckFrame 0x7f090242
+int id icPrinter 0x7f09023d
+int id icPrinterFrame 0x7f090240
 int id icon 0x7f0900df
 int id icon_group 0x7f0900e0
 int id icon_only 0x7f0900e1
@@ -2717,6 +2725,7 @@ int id percent 0x7f090150
 int id pin 0x7f090151
 int id position 0x7f090152
 int id postLayout 0x7f090153
+int id printerName 0x7f09023e
 int id progressBar_printers 0x7f090154
 int id progress_bar 0x7f090155
 int id progress_circular 0x7f090156
@@ -3202,6 +3211,7 @@ int string balancePrice2 0x7f100031
 int string bottom_sheet_behavior 0x7f100032
 int string box2 0x7f100033
 int string call 0x7f100034
+int string change_printer 0x7f10010c
 int string character_counter_content_description 0x7f100035
 int string character_counter_overflowed_content_description 0x7f100036
 int string character_counter_pattern 0x7f100037

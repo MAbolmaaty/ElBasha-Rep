@@ -1,31 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar_base"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_44sdp"
-    android:background="@color/colorTollBar"
-    android:orientation="horizontal"
-     >
-
+    android:background="@color/colorTollBar">
 
     <TextView
         android:id="@+id/textToolbar"
         style="@style/textStyleRegular"
-        android:layout_centerInParent="true"
         android:text="@string/app_name"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
         android:id="@+id/imageBack"
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
         android:padding="@dimen/_4sdp"
-        android:layout_alignParentEnd="true"
-        android:layout_centerInParent="true"
         android:src="@drawable/ic_back"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</RelativeLayout>
+    <FrameLayout
+        android:id="@+id/icPrinterFrame"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:padding="@dimen/_2sdp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/icPrinter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/ic_printer"
+            app:tint="@color/colorTollBar"
+            android:background="@drawable/bg_oval"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/printerName"
+        style="@style/textStyleRegular"
+        tools:text="RF-BHS"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_8sdp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:layout_marginStart="@dimen/_4sdp"
+        app:layout_constraintTop_toTopOf="@+id/icPrinterFrame"
+        app:layout_constraintBottom_toBottomOf="@id/icPrinterFrame"
+        app:layout_constraintStart_toEndOf="@+id/icPrinterFrame"/>
+
+    <FrameLayout
+        android:id="@+id/icCheckFrame"
+        android:layout_width="@dimen/_10sdp"
+        android:layout_height="@dimen/_10sdp"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:padding="1dp"
+        android:background="@drawable/bg_oval"
+        app:layout_constraintStart_toStartOf="@id/icPrinterFrame"
+        app:layout_constraintTop_toTopOf="@id/icPrinterFrame">
+
+        <ImageView
+            android:id="@+id/icCheck"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_check" />
+
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
