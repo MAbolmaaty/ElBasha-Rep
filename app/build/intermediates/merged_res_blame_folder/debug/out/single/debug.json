@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\layout_custom_admin_search1.xml.flat",
-        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\layout\\custom_admin_search1.xml"
-    },
-    {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v21_ic_upload.xml.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_upload.xml"
+    },
+    {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\layout_custom_admin_search1.xml.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\layout\\custom_admin_search1.xml"
     },
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\layout_item_report6.xml.flat",
@@ -726,6 +726,10 @@
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_report_7.xml.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\layout\\fragment_report_7.xml"
+    },
+    {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_fez.png.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\ic_fez.png"
     },
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable-mdpi_ic_phone.png.flat",

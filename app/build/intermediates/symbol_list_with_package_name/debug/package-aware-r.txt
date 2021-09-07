@@ -2323,6 +2323,7 @@ drawable ic_delete
 drawable ic_drop_down
 drawable ic_empty
 drawable ic_envelope
+drawable ic_fez
 drawable ic_filter
 drawable ic_home
 drawable ic_lock
@@ -2464,6 +2465,7 @@ id all
 id always
 id animateToEnd
 id animateToStart
+id app_logo
 id asConfigured
 id async
 id auto
@@ -2616,7 +2618,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageAction
 id imageAdd
 id imageBack
 id imageDelete

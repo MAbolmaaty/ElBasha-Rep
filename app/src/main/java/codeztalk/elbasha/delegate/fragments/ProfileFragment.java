@@ -25,28 +25,22 @@ import codeztalk.elbasha.delegate.activities.stock.StockActivity;
 
 public class ProfileFragment extends BaseFragment {
 
-
     TextView textEmployeeName;
     TextView textEmployeeEmail;
     TextView textEmployeeAddress;
     TextView textEmployeePhone;
-
     TextView textReportDay;
     TextView textReportStore;
     TextView textPocket;
     TextView textReport10;
-
     EditText editPaperHeight;
     TextView textSave;
-
     ImageView imageUser;
     ImageView imageUser2;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, R.layout.fragment_profile);
-
-
         textEmployeeName = mView.findViewById(R.id.textEmployeeName);
         textEmployeeEmail = mView.findViewById(R.id.textEmployeeEmail);
         textEmployeeAddress = mView.findViewById(R.id.textEmployeeAddress);

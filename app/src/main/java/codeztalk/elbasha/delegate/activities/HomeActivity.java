@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -39,7 +40,7 @@ public class HomeActivity extends BaseActivity {
 
     private Boolean isHome = true;
     private TextView textAction;
-    LinearLayout toolbar_base;
+    ConstraintLayout toolbar_base;
     LinearLayout linearAction;
     private BottomNavigationView bottomNavigationView;
     String fragmentName = "home";
@@ -89,7 +90,7 @@ public class HomeActivity extends BaseActivity {
 
 
         toolbar_base = findViewById(R.id.toolbar_base);
-        linearAction= findViewById(R.id.linearAction);
+        toolbar_base.setVisibility(View.GONE);
         textAction = findViewById(R.id.textAction);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
@@ -100,24 +101,29 @@ public class HomeActivity extends BaseActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
 
-                    navigateToFragment(new HomeFragment(), true, getString(R.string.addClient), "home");
+                    navigateToFragment(new HomeFragment(),
+                            true, getString(R.string.addClient), "home");
                     break;
 
                 case R.id.navigation_invoices:
-                    navigateToFragment(new CreditInvoicesFragment(), false, getString(R.string.addPocket), "all");
+                    navigateToFragment(new CreditInvoicesFragment(),
+                            false, getString(R.string.addPocket), "all");
                     break;
 
                 case R.id.navigation_credit:
-                    navigateToFragment(new CreditInvoicesFragment(), false, getString(R.string.addPocket), "credit");
+                    navigateToFragment(new CreditInvoicesFragment(),
+                            false, getString(R.string.addPocket), "credit");
                     break;
 
                 case R.id.navigation_notification:
-                    navigateToFragment(new DashBoardFragment(), false, getString(R.string.report9), "dashboard");
+                    navigateToFragment(new DashBoardFragment(),
+                            false, getString(R.string.report9), "dashboard");
                     break;
 
 
                 case R.id.navigation_profile:
-                    navigateToFragment(new ProfileFragment(), false, getString(R.string.logout), "profile");
+                    navigateToFragment(new ProfileFragment(),
+                            false, getString(R.string.logout), "profile");
 
                     break;
 
@@ -238,7 +244,8 @@ public class HomeActivity extends BaseActivity {
 
         try {
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame_product, fragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame_product, fragment)
+                    .commitAllowingStateLoss();
 
             textAction.setText(text);
         } catch (Exception e) {
