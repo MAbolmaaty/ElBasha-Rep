@@ -25,6 +25,7 @@ import codeztalk.elbasha.delegate.activities.AddClientActivity;
 import codeztalk.elbasha.delegate.activities.ClientProfileActivity;
 import codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity;
 import codeztalk.elbasha.delegate.models.ClientModel;
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
 import codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout;
 import codeztalk.elbasha.delegate.swipereveallayout.ViewBinderHelper;
 
@@ -33,12 +34,10 @@ public class ClientSwipeAdapter extends RecyclerView.Adapter<ClientSwipeAdapter.
 
     private final List<ClientModel> mDataSet;
     private List<ClientModel> mDataSetFiltered;
-
     private final Context mContext;
-
-
     private LayoutInflater mInflater;
     private final ViewBinderHelper binderHelper = new ViewBinderHelper();
+    private ConnectedDevice mConnectedDevice;
 
     @Override
     public Filter getFilter() {
@@ -76,23 +75,17 @@ public class ClientSwipeAdapter extends RecyclerView.Adapter<ClientSwipeAdapter.
     }
 
 
-    public ClientSwipeAdapter(List<ClientModel> mDataSet, Context context) {
+    public ClientSwipeAdapter(List<ClientModel> mDataSet, Context context,
+                              ConnectedDevice connectedDevice) {
         this.mDataSet = mDataSet;
         this.mDataSetFiltered = mDataSet;
-
-         this.mContext = context;
-
+        this.mContext = context;
         try {
             mInflater = LayoutInflater.from(context);
-
-
-
         } catch (Exception e) {
-
-
             Log.e("Exception"," >"+e.toString());
         }
-
+        this.mConnectedDevice = connectedDevice;
      }
 
 
@@ -128,9 +121,6 @@ public class ClientSwipeAdapter extends RecyclerView.Adapter<ClientSwipeAdapter.
             return 0;
         return mDataSetFiltered.size();
     }
-
-
-
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private SwipeRevealLayout swipeLayout;
@@ -172,9 +162,11 @@ public class ClientSwipeAdapter extends RecyclerView.Adapter<ClientSwipeAdapter.
 
                 Intent i = new Intent(mContext, CategoryProductsActivity.class);
                 i.putExtra("clientModel", clientModel);
+                if (mConnectedDevice != null){
+                    i.putExtra("printer_name", mConnectedDevice.getName());
+                    i.putExtra("printer_mac_address", mConnectedDevice.getMacAddress());
+                }
                 mContext.startActivity(i);
-
-
             });
 
             linearMain.setOnClickListener(v -> {

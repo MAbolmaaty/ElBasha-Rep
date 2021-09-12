@@ -210,6 +210,17 @@
 108-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\muham\.gradle\caches\transforms-3\24ea6dfdbe50338f2ab4e2f5a37a3cf5\transformed\jetified-play-services-base-17.3.0\AndroidManifest.xml:25:13-37
 109            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 109-->[com.google.android.gms:play-services-base:17.3.0] C:\Users\muham\.gradle\caches\transforms-3\24ea6dfdbe50338f2ab4e2f5a37a3cf5\transformed\jetified-play-services-base-17.3.0\AndroidManifest.xml:26:13-72
-110    </application>
-111
-112</manifest>
+110
+111        <provider
+111-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\muham\.gradle\caches\transforms-3\aef9d76db076645bec3b8b1e043baba5\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+112            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+112-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\muham\.gradle\caches\transforms-3\aef9d76db076645bec3b8b1e043baba5\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+113            android:authorities="codeztalk.elbasha.delegate.lifecycle-process"
+113-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\muham\.gradle\caches\transforms-3\aef9d76db076645bec3b8b1e043baba5\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+114            android:exported="false"
+114-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\muham\.gradle\caches\transforms-3\aef9d76db076645bec3b8b1e043baba5\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+115            android:multiprocess="true" />
+115-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\muham\.gradle\caches\transforms-3\aef9d76db076645bec3b8b1e043baba5\transformed\jetified-lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+116    </application>
+117
+118</manifest>

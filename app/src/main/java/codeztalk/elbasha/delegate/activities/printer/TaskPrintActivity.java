@@ -23,6 +23,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,19 +44,21 @@ import codeztalk.elbasha.delegate.helper.MyHelpers;
 import codeztalk.elbasha.delegate.helper.PreferenceHelper;
 import codeztalk.elbasha.delegate.models.ClientInvoiceModel;
 import codeztalk.elbasha.delegate.models.ClientModel;
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
 import codeztalk.elbasha.delegate.models.InvoiceModel;
 
 
 public class TaskPrintActivity extends BaseActivity {
     private static final String TAG = TaskPrintActivity.class.getSimpleName();
+
+    private static final int REQUEST_ENABLE_BLUETOOTH = 7916;
+
     TSCActivity TscDll;
     Button scan, connect, task_button_print;
     BluetoothAdapter mBluetoothAdapter = null;
     public static boolean deviceConnected = false;
     public boolean connected = false;
-    // Intent request codes
-    private static final int REQUEST_CONNECT_DEVICE = 1;
-    private static final int REQUEST_ENABLE_BT = 2;
+
     int quantityNo = 1;
     LinearLayout linearInvoice;
     ProductSelectedAdapter hoursOfflineAdapter;
@@ -83,7 +86,9 @@ public class TaskPrintActivity extends BaseActivity {
     FrameLayout mIcPrinterFrame;
     TextView mPrinterName;
     FrameLayout mIcCheckFrame;
+
     public PreferenceHelper mPreferenceHelper;
+    public static ConnectedDevice mConnectedDevice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +105,10 @@ public class TaskPrintActivity extends BaseActivity {
         clientInvoiceModel = (ClientInvoiceModel) getIntent().getSerializableExtra("clientInvoiceModel");
         invoiceModel = (InvoiceModel) getIntent().getSerializableExtra("invoiceModel");
         clientModel = (ClientModel) getIntent().getSerializableExtra("clientModel");
-
+        if (getIntent().getStringExtra("printer_mac_address") != null) {
+            mConnectedDevice = new ConnectedDevice(getIntent().getStringExtra("printer_name"),
+                    getIntent().getStringExtra("printer_mac_address"));
+        }
         ImageView imageBack = findViewById(R.id.imageBack);
         TextView textToolbar = findViewById(R.id.textToolbar);
         textToolbar.setText(getString(R.string.invoiceDetail));
@@ -121,7 +129,6 @@ public class TaskPrintActivity extends BaseActivity {
         textUnPaid = findViewById(R.id.textUnPaid);
         textPaid = findViewById(R.id.textPaid);
         recyclerProducts = findViewById(R.id.recyclerProducts);
-
 
         //button
         scan = findViewById(R.id.search);
@@ -149,11 +156,6 @@ public class TaskPrintActivity extends BaseActivity {
                 TscDll.closeport();
             }
             startDiscovery();
-//            if (connected) {
-//                Toast.makeText(TaskPrintActivity.this, "Already Connected!", Toast.LENGTH_LONG).show();
-//            } else {
-//                startDiscovery();
-//            }
         });
         task_button_print.setOnClickListener(v -> {
             Log.d(TAG, "print button clicked");
@@ -167,18 +169,76 @@ public class TaskPrintActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (mPreferenceHelper.getPrinter() != null) {
-            mPrinterName.setText(mPreferenceHelper.getPrinter().getName());
+        Log.d(TAG, "TaskPrintActivity onResume");
+
+        if (!mBluetoothAdapter.isEnabled()) {
+            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableIntent, REQUEST_ENABLE_BLUETOOTH);
+            return;
+        }
+
+        if (mConnectedDevice != null){
+            Log.d(TAG, "View Model Printer : " + mConnectedDevice.getName());
+            mPrinterName.setText(mConnectedDevice.getName());
             mIcPrinterFrame.setVisibility(View.VISIBLE);
             mPrinterName.setVisibility(View.VISIBLE);
             mIcCheckFrame.setVisibility(View.VISIBLE);
             scan.setText(getString(R.string.change_printer));
             task_button_print.setVisibility(View.VISIBLE);
-            TscDll.openport(mPreferenceHelper.getPrinter().getMacAddress());
+            TscDll.openport(mConnectedDevice.getMacAddress());
             connected = true;
         } else {
             scan.setText(getString(R.string.connect));
-            task_button_print.setVisibility(View.GONE);
+            task_button_print.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        try {
+            if (connected) {
+                connected = false;
+                TscDll.closeport();
+                //TscDll = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (TscDll.IsConnected)
+            TscDll.closeport();
+        if (mBluetoothAdapter.isEnabled()) {
+            try {
+                if (connected) {
+                    connected = false;
+                    TscDll.closeport();
+                    //TscDll = null;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //mBluetoothAdapter.disable();
+        }
+
+        if (invoiceModel != null) {
+            removeCashedData();
+
+        }
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_ENABLE_BLUETOOTH) {
+            if (resultCode != RESULT_OK) {
+                onBackPressed();
+            }
         }
     }
 
@@ -200,7 +260,6 @@ public class TaskPrintActivity extends BaseActivity {
             textDelegateName.setText(invoiceModel.getDelgateMan());
             textPaid.setText(String.valueOf(invoiceModel.getPaid()));
             textUnPaid.setText(String.valueOf(invoiceModel.getUnPaid()));
-
 
             quantityNo = getCopyNo(invoiceModel.isCash());
 
@@ -233,31 +292,22 @@ public class TaskPrintActivity extends BaseActivity {
             textPaid.setText(String.valueOf(clientInvoiceModel.getPaidValue()));
             textUnPaid.setText(String.valueOf(clientInvoiceModel.getRemainValue()));
 
-
             quantityNo = getCopyNo(!clientInvoiceModel.getIsCredit());
 
             initializeProductsOnline();
             Log.e("lizeProductsOnline", ">>>>>");
-
-
         }
-
-
     }
 
 
     public void initializeProductsOnline() {
         //initialize views
-
-
         recyclerProducts.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerProducts.setLayoutManager(mLayoutManager);
         product2SelectedAdapter = new Product2SelectedAdapter(clientInvoiceModel.getmProducts(), this);
         recyclerProducts.setAdapter(product2SelectedAdapter);
         product2SelectedAdapter.notifyDataSetChanged();
-
-
     }
 
     public void initializeHoursOffline() {
@@ -275,27 +325,6 @@ public class TaskPrintActivity extends BaseActivity {
         hoursOfflineAdapter = new ProductSelectedAdapter(hoursOfflineArrayList, this);
         recyclerProducts.setAdapter(hoursOfflineAdapter);
         hoursOfflineAdapter.notifyDataSetChanged();
-
-
-    }
-
-
-    @Override
-    protected void onDestroy() {
-
-        super.onDestroy();
-        try {
-            if (connected) {
-                connected = false;
-                TscDll.closeport();
-                //TscDll = null;
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
 
@@ -330,8 +359,6 @@ public class TaskPrintActivity extends BaseActivity {
 
             mPrintThread = new Thread(() -> {
                 Looper.prepare();
-
-
                 if (!connected) {
                     Log.d(TAG, "Before print: " + mPreferenceHelper.getPrinter().getName());
                     TscDll.openport(mPreferenceHelper.getPrinter().getMacAddress());
@@ -355,6 +382,13 @@ public class TaskPrintActivity extends BaseActivity {
 //                        TscDll.closeport();
 
                 } catch (Exception e) {
+                    runOnUiThread(new Runnable(){
+                        public void run() {
+                            Toast.makeText(getBaseContext(), R.string.printer_not_connected,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
                     e.printStackTrace();
                 }
 
@@ -395,52 +429,11 @@ public class TaskPrintActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void onBackPressed() {
-        if (TscDll.IsConnected)
-            TscDll.closeport();
-        if (mBluetoothAdapter.isEnabled()) {
-            try {
-                if (connected) {
-                    connected = false;
-                    TscDll.closeport();
-                    //TscDll = null;
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            //mBluetoothAdapter.disable();
-        }
-
-        if (invoiceModel != null) {
-            removeCashedData();
-
-        }
-        finish();
-    }
-
     void startDiscovery() {
         // Launch the DeviceListActivity to see devices and do scan
         Intent intent = new Intent(this, DeviceListActivity.class);
         startActivity(intent);
     }
-
-
-    @Override
-    protected void onStart() {
-        if (mBluetoothAdapter != null) {
-            // If BT is not on, request that it be enabled.
-            // setupChat() will then be called during onActivityResult
-            if (!mBluetoothAdapter.isEnabled()) {
-                Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-                // Otherwise, setup the comm session
-            }
-        }
-        super.onStart();
-    }
-
 
     String getInvoiceType(boolean isCash) {
         if (isCash)

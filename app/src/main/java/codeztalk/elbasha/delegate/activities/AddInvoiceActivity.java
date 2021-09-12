@@ -37,6 +37,7 @@ import codeztalk.elbasha.delegate.adapter.ProductSelectedAdapter;
 import codeztalk.elbasha.delegate.db.ForsahDB;
 import codeztalk.elbasha.delegate.helper.BottomNavigationBehavior;
 import codeztalk.elbasha.delegate.models.ClientModel;
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
 import codeztalk.elbasha.delegate.models.InvoiceModel;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,8 +68,7 @@ public class AddInvoiceActivity extends BaseActivity {
     ClientModel clientModel;
     InvoiceModel invoiceModel;
     boolean isCash = true;
-
-
+    private ConnectedDevice mConnectedDevice;
 //    private boolean validateInputs() {
 //        if (isEmpty(editInvoiceNumber)) {
 //            editInvoiceNumber.setError(AddInvoiceActivity.this.getString(R.string.empty_invoice_error));
@@ -86,7 +86,10 @@ public class AddInvoiceActivity extends BaseActivity {
         Log.d(TAG, "AddInvoiceActivity created");
         db = new ForsahDB(this);
         clientModel = (ClientModel) getIntent().getSerializableExtra("clientModel");
-
+        if (getIntent().getStringExtra("printer_mac_address") != null){
+            mConnectedDevice = new ConnectedDevice(getIntent().getStringExtra("printer_name"),
+                    getIntent().getStringExtra("printer_mac_address"));
+        }
 
         ImageView imageBack = findViewById(R.id.imageBack);
         TextView textToolbar = findViewById(R.id.textToolbar);
@@ -181,6 +184,10 @@ public class AddInvoiceActivity extends BaseActivity {
         Intent i = new Intent(AddInvoiceActivity.this, TaskPrintActivity.class);
         i.putExtra("invoiceModel", invoiceModel);
         i.putExtra("clientModel", clientModel);
+        if (mConnectedDevice != null){
+            i.putExtra("printer_name", mConnectedDevice.getName());
+            i.putExtra("printer_mac_address", mConnectedDevice.getMacAddress());
+        }
         startActivity(i);
         finish();
 
@@ -225,16 +232,11 @@ public class AddInvoiceActivity extends BaseActivity {
                         && Double.parseDouble(charSequence.toString()) < finalPrice)
                 {
                     calculatePrice(false);
-
                 }
                 else
                     {
                         Log.e("conan", "unPaidPrice =");
-
                     }
-
-
-
             }
         });
 
@@ -418,7 +420,7 @@ public class AddInvoiceActivity extends BaseActivity {
 
                     } else {
                         //TODO : Remove : launchPrint("231132");
-                        launchPrint("231132");
+                        //launchPrint("231132");
                         Log.e("addInvoiceResponse : ", "  >>==> " + response.message());
                         Toast.makeText(AddInvoiceActivity.this, "" + response.message(), Toast.LENGTH_SHORT).show();
                         Toast.makeText(AddInvoiceActivity.this, "من فضلك قم بتسجيل الخروج واللدخول مرة اخرى", Toast.LENGTH_SHORT).show();

@@ -2270,6 +2270,7 @@ drawable background_edit_text
 drawable background_transparent
 drawable bg_button_registration
 drawable bg_oval
+drawable bg_rectangle_corners_18
 drawable bg_rectangle_primary
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -3381,6 +3382,7 @@ string pick_image_intent_chooser_title
 string pocket
 string previousBalance
 string print
+string printer_not_connected
 string proceed
 string productError
 string productName

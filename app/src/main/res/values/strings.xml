@@ -215,5 +215,6 @@
     <string name="save">حفظ</string>
     <string name="paperHeight">طول الورقة</string>
     <string name="time">وقت الفاتورة</string>
+    <string name="printer_not_connected">الطابعة غير متصلة</string>
 
 </resources>

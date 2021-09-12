@@ -8,8 +8,11 @@ import android.util.Log;
 import android.view.WindowManager;
 
 
+import androidx.lifecycle.ViewModelProviders;
+
 import codeztalk.elbasha.delegate.R;
 import codeztalk.elbasha.delegate.db.ForsahDB;
+import codeztalk.elbasha.delegate.view_models.PrinterViewModel;
 
 
 public class SplashActivity extends BaseActivity {
@@ -22,18 +25,15 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_splash);
         db = new ForsahDB(this);
 
-
         preferenceHelper.setTotalPrice("0");
         db.deleteProductTable();
         db.deleteCategoryTable();
         db.deleteClientTable();
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Log.e("getUserLocation : ", ">> " + preferenceHelper.getUserLocation());
-
-
 
         new Handler().postDelayed(() -> {
 
@@ -42,14 +42,7 @@ public class SplashActivity extends BaseActivity {
             } else
                 launchHome();
         }, 2000);
-
-
     }
-
-
-
-
-
 
     @Override
     protected void onStart() {
@@ -60,7 +53,6 @@ public class SplashActivity extends BaseActivity {
         Intent i = new Intent(SplashActivity.this, LoginActivity.class);
         startActivity(i);
         finish();
-
     }
 
     private void launchHome() {
@@ -68,8 +60,4 @@ public class SplashActivity extends BaseActivity {
         startActivity(intent);
         finish();
     }
-
-
-
-
 }

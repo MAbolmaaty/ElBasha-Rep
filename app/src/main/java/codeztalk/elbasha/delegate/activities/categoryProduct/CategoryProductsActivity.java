@@ -31,6 +31,7 @@ import codeztalk.elbasha.delegate.activities.BaseActivity;
 import codeztalk.elbasha.delegate.db.ForsahDB;
 import codeztalk.elbasha.delegate.helper.BottomNavigationBehavior;
 import codeztalk.elbasha.delegate.models.ClientModel;
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,6 +58,7 @@ public class CategoryProductsActivity extends BaseActivity {
 
     ClientModel clientModel;
 
+    private ConnectedDevice mConnectedDevice;
 
     public void getProducts(String catName) {
         productArrayList.clear();
@@ -79,6 +81,10 @@ public class CategoryProductsActivity extends BaseActivity {
         db = new ForsahDB(this);
 
         clientModel = (ClientModel) getIntent().getSerializableExtra("clientModel");
+        if (getIntent().getStringExtra("printer_mac_address") != null){
+            mConnectedDevice = new ConnectedDevice(getIntent().getStringExtra("printer_name"),
+                    getIntent().getStringExtra("printer_mac_address"));
+        }
 
         recyclerCategories = findViewById(R.id.recycler_category);
         recyclerProducts = findViewById(R.id.recyclerProducts);
@@ -96,12 +102,8 @@ public class CategoryProductsActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
                 productCategoryAdapter.getFilter().filter(s);
                 search = s;
-
-
             }
 
             @Override
@@ -116,11 +118,13 @@ public class CategoryProductsActivity extends BaseActivity {
         textTotal.setText(preferenceHelper.getTotalPrice());
 
         textProceed.setOnClickListener(v -> {
-
-
             if (Double.parseDouble(textTotal.getText().toString()) > 0) {
                 Intent i = new Intent(CategoryProductsActivity.this, AddInvoiceActivity.class);
                 i.putExtra("clientModel", clientModel);
+                if (mConnectedDevice != null){
+                    i.putExtra("printer_name", mConnectedDevice.getName());
+                    i.putExtra("printer_mac_address", mConnectedDevice.getMacAddress());
+                }
                 startActivity(i);
                 finish();
             } else {

@@ -9,6 +9,7 @@ codeztalk/elbasha/delegate/models/fileModel.java
  codeztalk.elbasha.delegate.models.fileModel
 codeztalk/elbasha/delegate/activities/printer/TaskPrintActivity.java
  codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity
+ codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity$1
 codeztalk/elbasha/delegate/activities/stock/DeviceStockActivity.java
  codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity
  codeztalk.elbasha.delegate.activities.stock.DeviceStockActivity$1
@@ -94,6 +95,7 @@ codeztalk/elbasha/delegate/fragments/HomeFragment.java
  codeztalk.elbasha.delegate.fragments.HomeFragment$1
  codeztalk.elbasha.delegate.fragments.HomeFragment$2
  codeztalk.elbasha.delegate.fragments.HomeFragment$3
+ codeztalk.elbasha.delegate.fragments.HomeFragment$4
 codeztalk/elbasha/delegate/activities/categoryProduct/CategoryAdapter.java
  codeztalk.elbasha.delegate.activities.categoryProduct.CategoryAdapter
  codeztalk.elbasha.delegate.activities.categoryProduct.CategoryAdapter$DataObjectHolder
@@ -120,6 +122,8 @@ codeztalk/elbasha/delegate/fragments/reports/Reports6Fragment.java
  codeztalk.elbasha.delegate.fragments.reports.Reports6Fragment$3
 codeztalk/elbasha/delegate/aPIS/responses/LoginResponse.java
  codeztalk.elbasha.delegate.aPIS.responses.LoginResponse
+codeztalk/elbasha/delegate/repositories/PrinterRepository.java
+ codeztalk.elbasha.delegate.repositories.PrinterRepository
 codeztalk/elbasha/delegate/fragments/PocketFragment.java
  codeztalk.elbasha.delegate.fragments.PocketFragment
  codeztalk.elbasha.delegate.fragments.PocketFragment$1
@@ -177,6 +181,8 @@ codeztalk/elbasha/delegate/activities/categoryProduct/CategoryProductsActivity.j
  codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity
  codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity$1
  codeztalk.elbasha.delegate.activities.categoryProduct.CategoryProductsActivity$2
+codeztalk/elbasha/delegate/view_models/PrinterViewModel.java
+ codeztalk.elbasha.delegate.view_models.PrinterViewModel
 codeztalk/elbasha/delegate/activities/categoryProduct/ProductCategoryAdapter.java
  codeztalk.elbasha.delegate.activities.categoryProduct.ProductCategoryAdapter
  codeztalk.elbasha.delegate.activities.categoryProduct.ProductCategoryAdapter$1

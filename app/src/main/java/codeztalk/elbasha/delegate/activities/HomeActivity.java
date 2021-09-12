@@ -17,6 +17,7 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -35,6 +36,7 @@ import codeztalk.elbasha.delegate.fragments.ProfileFragment;
 import codeztalk.elbasha.delegate.fragments.reports.DashBoardFragment;
 import codeztalk.elbasha.delegate.helper.MyContextWrapper;
 import codeztalk.elbasha.delegate.helper.PreferenceHelper;
+import codeztalk.elbasha.delegate.view_models.PrinterViewModel;
 
 public class HomeActivity extends BaseActivity {
 
@@ -46,15 +48,11 @@ public class HomeActivity extends BaseActivity {
     String fragmentName = "home";
     private static final int REQUEST_ADD_CLIENT = 1;
 
-
-    //Location
     private static final String TAG = HomeActivity.class.getSimpleName();
-
-
 
     private CreditInvoicesFragment existingFragment;
 
-
+    private PrinterViewModel mPrinterViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +64,8 @@ public class HomeActivity extends BaseActivity {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         preferenceHelper = new PreferenceHelper(this);
+        mPrinterViewModel = ViewModelProviders.of(this).get(PrinterViewModel.class);
+        mPrinterViewModel.loadPrinter(preferenceHelper);
 
         mLocationCallback = new LocationCallback() {
             @Override

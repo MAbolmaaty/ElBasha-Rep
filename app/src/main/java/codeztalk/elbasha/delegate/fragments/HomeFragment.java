@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,7 +33,9 @@ import codeztalk.elbasha.delegate.aPIS.responses.NoResponse;
 import codeztalk.elbasha.delegate.adapter.ClientSwipeAdapter;
 import codeztalk.elbasha.delegate.adapter.DayFilterAdapter;
 import codeztalk.elbasha.delegate.models.ClientModel;
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
 import codeztalk.elbasha.delegate.models.DayModel;
+import codeztalk.elbasha.delegate.view_models.PrinterViewModel;
 import codeztalk.elbasha.delegate.views.MyRecyclerView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -54,10 +58,19 @@ public class HomeFragment extends BaseFragment {
     CharSequence search = "";
     private RecyclerView recyclerDays;
 
+    private PrinterViewModel mPrinterViewModel;
+    private ConnectedDevice mConnectedDevice;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, R.layout.fragment_home);
-
+        mPrinterViewModel = ViewModelProviders.of(getActivity()).get(PrinterViewModel.class);
+        mPrinterViewModel.getPrinter().observe(this, new Observer<ConnectedDevice>() {
+            @Override
+            public void onChanged(ConnectedDevice connectedDevice) {
+                mConnectedDevice = connectedDevice;
+            }
+        });
         Log.d(TAG, "Home Fragment Created");
 
         recyclerAll = mView.findViewById(R.id.recyclerAll);
@@ -131,7 +144,7 @@ public class HomeFragment extends BaseFragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerAll.setLayoutManager(mLayoutManager);
 
-        clientSwipeAdapter = new ClientSwipeAdapter(clientList, getActivity() );
+        clientSwipeAdapter = new ClientSwipeAdapter(clientList, getActivity(), mConnectedDevice);
         recyclerAll.setAdapter(clientSwipeAdapter);
 
 

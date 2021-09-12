@@ -296,10 +296,10 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
 
                        }
 
-                       //TODO : Change
-//                    if (Integer.parseInt(charSequence.toString()) <= productModel.getUnitStockQty()
-//                         &&productModel.getType()==0)
-                        if (productModel.getType()==0)
+                       //TODO : Change : if (productModel.getType()==0)
+                    if (Integer.parseInt(charSequence.toString()) <= productModel.getUnitStockQty()
+                         &&productModel.getType()==0)
+//                        if (productModel.getType()==0)
 
                         {
 

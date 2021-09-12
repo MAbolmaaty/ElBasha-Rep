@@ -71,9 +71,8 @@ public class DeviceListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mBtAdapter.cancelDiscovery();
-
+                TaskPrintActivity.mConnectedDevice = mPairedDevices.get(position);
                 mPreferenceHelper.setPrinter(mPairedDevices.get(position));
-
                 finish();
 
             }
@@ -86,11 +85,9 @@ public class DeviceListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mBtAdapter.cancelDiscovery();
-
+                TaskPrintActivity.mConnectedDevice = mNewDevices.get(position);
                 mPreferenceHelper.setPrinter(mNewDevices.get(position));
-
                 finish();
-
             }
         });
 
