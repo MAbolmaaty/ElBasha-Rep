@@ -15,7 +15,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
         <include layout="@layout/toolbar_search" />
 
         <LinearLayout

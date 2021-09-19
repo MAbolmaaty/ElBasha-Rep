@@ -151,7 +151,6 @@
                         <RadioButton
                             android:id="@+id/radioCash"
                             style="@style/myRadioStyle"
-                            android:checked="true"
                             android:text="@string/payCash"
                             app:buttonCompat="@null" />
 

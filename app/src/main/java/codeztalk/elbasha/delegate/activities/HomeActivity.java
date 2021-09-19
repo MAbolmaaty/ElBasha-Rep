@@ -57,7 +57,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         Log.d(TAG, "Home Activity Created");
 
@@ -97,37 +97,27 @@ public class HomeActivity extends BaseActivity {
         navigateToFragment(new HomeFragment(), true, getString(R.string.addClient), "home");
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-
                     navigateToFragment(new HomeFragment(),
                             true, getString(R.string.addClient), "home");
                     break;
-
                 case R.id.navigation_invoices:
                     navigateToFragment(new CreditInvoicesFragment(),
                             false, getString(R.string.addPocket), "all");
                     break;
-
                 case R.id.navigation_credit:
                     navigateToFragment(new CreditInvoicesFragment(),
                             false, getString(R.string.addPocket), "credit");
                     break;
-
                 case R.id.navigation_notification:
                     navigateToFragment(new DashBoardFragment(),
                             false, getString(R.string.report9), "dashboard");
                     break;
-
-
                 case R.id.navigation_profile:
                     navigateToFragment(new ProfileFragment(),
                             false, getString(R.string.logout), "profile");
-
                     break;
-
-
             }
 
             return true;
@@ -135,9 +125,7 @@ public class HomeActivity extends BaseActivity {
 
 
         textAction.setOnClickListener(v -> {
-
             switch (fragmentName) {
-
                 case "home":
                     launchAddClient();
                     break;
@@ -148,25 +136,19 @@ public class HomeActivity extends BaseActivity {
                 case "profile":
                     ShowLogOutDialog();
                     break;
-
             }
-
-
         });
     }
 
     void launchAddClient() {
-
         Intent serverIntent = new Intent(this, AddClientActivity.class);
         startActivityForResult(serverIntent, REQUEST_ADD_CLIENT);
-
     }
 
     void launchAddPocket() {
         Intent i = new Intent(HomeActivity.this, AddPocketActivity.class);
         startActivity(i);
     }
-
 
     private void ShowLogOutDialog() {
         final Dialog dialog = new Dialog(HomeActivity.this, R.style.MyDialog);
@@ -194,7 +176,6 @@ public class HomeActivity extends BaseActivity {
         no.setOnClickListener(v -> dialog.cancel());
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -203,15 +184,11 @@ public class HomeActivity extends BaseActivity {
                 navigateToFragment(new HomeFragment(), true, getString(R.string.addClient), "home");
 
             }
-
-
         }
-
         super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void navigateToFragment(Fragment fragment, Boolean inHome, String text, String fragment_name) {
-
         isHome = inHome;
         fragmentName = fragment_name;
 
@@ -254,14 +231,10 @@ public class HomeActivity extends BaseActivity {
 
     }
 
-
-
     private void launchLogin() {
-
         Intent i = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(i);
         finish();
-
     }
 
     @Override
@@ -273,9 +246,7 @@ public class HomeActivity extends BaseActivity {
             navigateToFragment(new HomeFragment(), true, getString(R.string.home), "home");
             bottomNavigationView.setSelectedItemId(R.id.navigation_home);
         }
-
     }
-
 
     @Override
     public void onDestroy() {
@@ -289,32 +260,10 @@ public class HomeActivity extends BaseActivity {
         if (!checkPermissions()) {
             requestPermissions();
         } else {
-
             new Handler().postDelayed(this::requestLocationUpdates, 1000);
-
-
         }
 
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-         super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-
-
-        super.onStop();
-    }
-
 
     private boolean checkPermissions() {
         return PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this,
@@ -416,7 +365,5 @@ public class HomeActivity extends BaseActivity {
             Log.e(TAG, "Lost location permission." + unlikely);
         }
     }
-
-
 
 }

@@ -87,26 +87,21 @@ public class HomeFragment extends BaseFragment {
         editSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
                 clientSwipeAdapter.getFilter().filter(s);
                 search = s;
-
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
             }
         });
-        Objects.requireNonNull(getActivity()).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        Objects.requireNonNull(getActivity()).
+                getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         getClients();
         initializeDays();
@@ -123,8 +118,6 @@ public class HomeFragment extends BaseFragment {
                     recyclerDays.setVisibility(View.VISIBLE);
 
                 }
-
-
         });
 
 //        checkLocation();

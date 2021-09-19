@@ -407,7 +407,8 @@ public class AddInvoiceActivity extends BaseActivity {
 
             call.enqueue(new Callback<AddInvoiceResponse>() {
                 @Override
-                public void onResponse(@NonNull Call<AddInvoiceResponse> call, @NonNull Response<AddInvoiceResponse> response) {
+                public void onResponse(@NonNull Call<AddInvoiceResponse> call,
+                                       @NonNull Response<AddInvoiceResponse> response) {
                     removeSimpleProgressDialog();
 
                     addInvoiceResponse = response.body();
@@ -420,16 +421,16 @@ public class AddInvoiceActivity extends BaseActivity {
 
                     } else {
                         //TODO : Remove : launchPrint("231132");
-                        //launchPrint("231132");
+                        launchPrint("231132");
                         Log.e("addInvoiceResponse : ", "  >>==> " + response.message());
-                        Toast.makeText(AddInvoiceActivity.this, "" + response.message(), Toast.LENGTH_SHORT).show();
-                        Toast.makeText(AddInvoiceActivity.this, "من فضلك قم بتسجيل الخروج واللدخول مرة اخرى", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddInvoiceActivity.this,
+                                "" + response.message(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddInvoiceActivity.this,
+                                "من فضلك قم بتسجيل الخروج واللدخول مرة اخرى", Toast.LENGTH_SHORT).show();
 
 //                            preferenceHelper.logOut();
 //                            launchLogin();
                     }
-
-
                 }
 
                 @Override
@@ -438,16 +439,12 @@ public class AddInvoiceActivity extends BaseActivity {
                     Log.e("fail", "is : " + call.toString());
 
                     t.printStackTrace();
-
                 }
             });
         } else {
             Toast.makeText(this, getString(R.string.empty_product_error), Toast.LENGTH_SHORT).show();
         }
-
-
     }
-
 
 //    void login() {
 //

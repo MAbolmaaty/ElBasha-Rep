@@ -25,7 +25,9 @@ import java.util.ArrayList;
 import codeztalk.elbasha.delegate.R;
 import codeztalk.elbasha.delegate.db.ForsahDB;
 
-public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategoryAdapter.DataObjectHolder> implements Filterable {
+public class ProductCategoryAdapter
+        extends RecyclerView.Adapter<ProductCategoryAdapter.DataObjectHolder>
+        implements Filterable {
     ArrayList<Product> mDataSet;
     ArrayList<Product> mDataSetFiltered;
 
@@ -73,7 +75,8 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
     }
 
 
-    public ProductCategoryAdapter(ArrayList<Product> mDataSet, Context context, CategoryProductsActivity allProductsActivity) {
+    public ProductCategoryAdapter(ArrayList<Product> mDataSet, Context context,
+                                  CategoryProductsActivity allProductsActivity) {
         this.mDataSetFiltered = mDataSet;
         this.mDataSet = mDataSet;
 
@@ -159,7 +162,8 @@ public class ProductCategoryAdapter extends RecyclerView.Adapter<ProductCategory
 
 
         holder.textTotal.setText(String.valueOf(productModel.getTotalPrice()));
-        holder.textProductStock.setText(context.getString(R.string.stocky) + "\t" + productModel.getUnitStockQty());
+        holder.textProductStock.setText(context.getString(R.string.stocky) + "\t"
+                + productModel.getUnitStockQty());
 
         holder.textPrice.setText(String.valueOf(productModel.getOfficialUnitPrice()));
         holder.editPrice.setText(String.valueOf(productModel.getUnitPrice()));

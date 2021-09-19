@@ -278,6 +278,8 @@ codeztalk/elbasha/delegate/adapter/reportsAdapter/Report6Adapter.java
 codeztalk/elbasha/delegate/adapter/reportsAdapter/Report5Adapter.java
  codeztalk.elbasha.delegate.adapter.reportsAdapter.Report5Adapter
  codeztalk.elbasha.delegate.adapter.reportsAdapter.Report5Adapter$DataObjectHolder
+codeztalk/elbasha/delegate/ui/MainActivity.java
+ codeztalk.elbasha.delegate.ui.MainActivity
 codeztalk/elbasha/delegate/aPIS/LocalStorageProvider.java
  codeztalk.elbasha.delegate.aPIS.LocalStorageProvider
 codeztalk/elbasha/delegate/fragments/reports/Reports7Fragment.java
@@ -324,3 +326,5 @@ codeztalk/elbasha/delegate/views/CircleImageView.java
  codeztalk.elbasha.delegate.views.CircleImageView
 codeztalk/elbasha/delegate/helper/printerUtil.java
  codeztalk.elbasha.delegate.helper.printerUtil
+codeztalk/elbasha/delegate/utils/UiUtils.java
+ codeztalk.elbasha.delegate.utils.UiUtils

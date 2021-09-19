@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/container"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+    android:background="@color/white">
 
-    <include layout="@layout/toolbar_home" />
+    <include
+        android:id="@+id/mainToolbar"
+        layout="@layout/toolbar_home"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <FrameLayout
-        android:id="@+id/frame_product"
-        android:layout_width="match_parent"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/mainViewPager"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </FrameLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:background="@color/colorView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
+        app:layout_constraintBottom_toTopOf="@+id/mainBottomNav"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
+        android:id="@+id/mainBottomNav"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_40sdp"
-        android:background="@android:color/white"
-        app:itemIconSize="@dimen/_20sdp"
-        app:labelVisibilityMode="selected"
+        android:layout_height="56dp"
         app:menu="@menu/bottom_nav_menu"
+        android:background="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:itemTextAppearanceActive="@style/tabSelected"
         app:itemTextAppearanceInactive="@style/tabNotSelected"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

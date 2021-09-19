@@ -92,8 +92,6 @@ public interface ApiService {
             @Header("Authorization") String token);
 
 
-
-
     @POST(postClient)
     Call<AddClientResponse> addNewClient(
             @Header("Authorization") String token,

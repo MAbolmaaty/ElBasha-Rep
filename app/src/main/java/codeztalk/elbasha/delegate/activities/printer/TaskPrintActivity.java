@@ -24,10 +24,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tscdll.TSCActivity;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -61,6 +67,7 @@ public class TaskPrintActivity extends BaseActivity {
 
     int quantityNo = 1;
     LinearLayout linearInvoice;
+    //ConstraintLayout paper;
     ProductSelectedAdapter hoursOfflineAdapter;
     ArrayList<Product> hoursOfflineArrayList;
     Product2SelectedAdapter product2SelectedAdapter;
@@ -136,6 +143,7 @@ public class TaskPrintActivity extends BaseActivity {
         connect = findViewById(R.id.connect);
 
         linearInvoice = findViewById(R.id.linearInvoice);
+        //paper = findViewById(R.id.paper);
         // Get local Bluetooth adapter
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         //tsc printer
@@ -160,11 +168,38 @@ public class TaskPrintActivity extends BaseActivity {
         task_button_print.setOnClickListener(v -> {
             Log.d(TAG, "print button clicked");
             shareImage(linearInvoice);
+            //printQrCode();
         });
 //        scan.setOnClickListener(v -> shareImage(linearInvoice));
 
         initializeInvoice();
+
+//        String qrCodeText = "em";
+//
+//        MultiFormatWriter writer = new MultiFormatWriter();
+//
+//        try {
+//            BitMatrix matrix = writer.encode(qrCodeText, BarcodeFormat.QR_CODE,
+//                    350, 350);
+//
+//            BarcodeEncoder encoder = new BarcodeEncoder();
+//
+//            Bitmap bitmap = encoder.createBitmap(matrix);
+//
+//            mIcQrCode.setImageBitmap(bitmap);
+//
+//        } catch (WriterException e) {
+//            e.printStackTrace();
+//        }
     }
+
+//    private void printQrCode(){
+//        TSCActivity tscActivity = new TSCActivity();
+//        tscActivity.openport(mConnectedDevice.getMacAddress());
+//        tscActivity.qrcode(5, 5, "H", "2 x 2", "alphanumeric",
+//                "0", "Model 1", "0", "EM");
+//        tscActivity.printlabel(1, 1);
+//    }
 
     @Override
     protected void onResume() {
@@ -295,6 +330,8 @@ public class TaskPrintActivity extends BaseActivity {
             quantityNo = getCopyNo(!clientInvoiceModel.getIsCredit());
 
             initializeProductsOnline();
+
+
             Log.e("lizeProductsOnline", ">>>>>");
         }
     }
@@ -335,7 +372,8 @@ public class TaskPrintActivity extends BaseActivity {
         Log.e("getHeight", "" + view.getHeight());
 
 //        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
+                Bitmap.Config.ARGB_8888);
         view.setDrawingCacheEnabled(false);
         Canvas canvas = new Canvas(bitmap);
         Drawable bgDrawable = view.getBackground();
@@ -352,8 +390,6 @@ public class TaskPrintActivity extends BaseActivity {
 
 
         new Handler().postDelayed(() -> {
-
-
             if (mPrintThread != null)
                 mPrintThread.interrupt();
 
@@ -373,12 +409,27 @@ public class TaskPrintActivity extends BaseActivity {
                     TscDll.sendcommand("PUTPCX 100,300,\"UL.PCX\"\n");
 
 
-//                        TscDll.sendbitmap_resize(0, 0, bitmap, imageWidth, 1500);
                     TscDll.sendbitmap_resize(0, 0, bitmap,
-                            imageWidth, Math.round(getImageHeight()));
+                           imageWidth, Math.round(getImageHeight()));
+                    TscDll.printlabel(1, quantityNo);
+                    TscDll.clearbuffer();
+                    TscDll.setup(paperWidth, 40,
+                            printerSpeed, printerDensity, 0, 0, 0);
+                    TscDll.qrcode(300,
+                            0, "H", "5", "A","0","M2",
+                            "S7", "مؤسسـة حسـين حـــامد الحـربى للحـلويـات");
+                    TscDll.printlabel(1, quantityNo);
+                    //TscDll.sendcommand("TEXT 10,10,\"1\",0,12,12,\"EM\"\r\n");
+//                    TscDll.printlabel(1, quantityNo);
+//                    TscDll.sendcommand("CLS");
+//                    TscDll.sendcommand("TEXT 10,10,\"1\",0,12,12,\"EM\"\r\n");
+//                    TscDll.sendbitmap_resize(0, 0, bitmap,
+//                           imageWidth, Math.round(getImageHeight()));
+
+
 //                        TscDll.sendbitmap(0, 0, bitmap);
 
-                    TscDll.printlabel(1, quantityNo);
+
 //                        TscDll.closeport();
 
                 } catch (Exception e) {

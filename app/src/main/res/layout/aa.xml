@@ -7,14 +7,9 @@
     android:background="@color/appColor"
     android:orientation="horizontal">
 
-
-    <codeztalk.elbasha.delegate.views.MaterialRippleLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:mrl_rippleAlpha="0.2"
-        app:mrl_rippleColor="@color/colorRipple"
-        app:mrl_rippleHover="true"
-        app:mrl_rippleOverlay="true">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,9 +61,10 @@
 
                     <RadioGroup
                         android:id="@+id/RadioGroup"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_4sdp"
+                        android:layout_gravity="start"
                         android:orientation="horizontal">
 
                         <RadioButton
@@ -85,6 +81,7 @@
                             android:layout_width="wrap_content"
                             android:layout_marginStart="@dimen/_4sdp"
                             android:text="@string/box2"
+                            android:visibility="gone"
                             app:buttonCompat="@null" />
 
 
@@ -143,7 +140,6 @@
                         android:layout_gravity="end"
                         android:layout_margin="@dimen/_4sdp"
                         android:text="@string/stocky"
-
                         android:textColor="@color/color_mark"
                         android:textSize="@dimen/_10sdp" />
 
@@ -204,7 +200,7 @@
         </LinearLayout>
 
 
-    </codeztalk.elbasha.delegate.views.MaterialRippleLayout>
+    </FrameLayout>
 
 
 </LinearLayout>

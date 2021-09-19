@@ -23,11 +23,11 @@
 
             <ImageView
                 android:id="@+id/imageLogo"
-                 android:layout_width="@dimen/_120sdp"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_130sdp"
                 android:layout_marginTop="@dimen/_12sdp"
                 android:layout_gravity="center"
-                 android:scaleType="centerInside"
+                android:scaleType="centerInside"
                 android:src="@drawable/img_basha"
                 app:tint="@android:color/black" />
 
@@ -60,7 +60,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/commerical"
-                     />
+                    />
 
                 <TextView
                     android:layout_width="0dp"
@@ -72,7 +72,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/commerical2"
-                     />
+                    />
 
 
             </LinearLayout>
@@ -84,27 +84,27 @@
                 <TextView
                     style="@style/textStylePrint"
                     android:text="@string/vat"
-                     />
+                    />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-<!--                <TextView-->
-<!--                    style="@style/textStylePrint"-->
-<!--                    android:text="@string/date"-->
-<!--                     />-->
+                <!--                <TextView-->
+                <!--                    style="@style/textStylePrint"-->
+                <!--                    android:text="@string/date"-->
+                <!--                     />-->
 
-<!--                <TextView-->
-<!--                    style="@style/textStylePrint"-->
-<!--                    android:text="\t:\t" />-->
+                <!--                <TextView-->
+                <!--                    style="@style/textStylePrint"-->
+                <!--                    android:text="\t:\t" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/textDate"-->
-<!--                    style="@style/textStylePrint"-->
-<!--                    android:text="27-12-2020"-->
-<!--                     />-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/textDate"-->
+                <!--                    style="@style/textStylePrint"-->
+                <!--                    android:text="27-12-2020"-->
+                <!--                     />-->
 
 
 
@@ -120,7 +120,7 @@
                 <TextView
                     style="@style/textStylePrint"
                     android:text="@string/numberInvoice"
-                     />
+                    />
 
                 <TextView
                     style="@style/textStylePrint"
@@ -129,7 +129,7 @@
                 <TextView
                     android:id="@+id/textInvoiceNumber"
                     style="@style/textStylePrint"
-                      />
+                    />
 
                 <TextView
                     android:layout_width="0dp"
@@ -140,8 +140,7 @@
                     android:id="@+id/textType"
                     style="@style/textStylePrint"
                     android:layout_marginStart="@dimen/_12sdp"
-                    android:text="@string/payCash"
-                     />
+                    android:text="@string/payCash" />
 
             </LinearLayout>
 
@@ -185,7 +184,7 @@
                     android:id="@+id/textTime"
                     style="@style/textStylePrint"
                     android:layout_height="match_parent"
-                     />
+                    />
 
 
             </LinearLayout>
@@ -200,7 +199,7 @@
                 <TextView
                     style="@style/textStylePrint"
                     android:text="@string/clientName"
-                     />
+                    />
 
                 <TextView
                     style="@style/textStylePrint"
@@ -210,7 +209,7 @@
                     android:id="@+id/textClientName"
                     style="@style/textStylePrint"
                     android:text="@string/clientName2"
-                     />
+                    />
 
             </LinearLayout>
 
@@ -247,7 +246,7 @@
                     android:paddingStart="@dimen/_2sdp"
                     android:paddingEnd="@dimen/_2sdp"
                     android:text="@string/productName"
-                     />
+                    />
 
                 <View style="@style/verticalView2" />
 
@@ -255,12 +254,12 @@
 
                 <TextView
                     style="@style/textStylePrint"
-                     android:layout_height="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_width="0dp"
                     android:layout_weight=".5"
                     android:gravity="center"
                     android:text="@string/count"
-                     />
+                    />
 
                 <View style="@style/verticalView2" />
 
@@ -270,7 +269,7 @@
                     android:layout_weight=".8"
                     android:gravity="center"
                     android:text="@string/Price"
-                     />
+                    />
 
                 <View style="@style/verticalView2" />
 
@@ -281,7 +280,7 @@
                     android:gravity="center"
 
                     android:text="@string/total"
-                     />
+                    />
 
                 <View style="@style/verticalView2" />
 
@@ -296,7 +295,7 @@
                 android:id="@+id/recyclerProducts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                   />
+                />
 
 
             <LinearLayout
@@ -314,7 +313,7 @@
                     <TextView
                         style="@style/textStylePrint"
                         android:text="@string/total"
-                         />
+                        />
 
                     <TextView
                         style="@style/textStylePrint"
@@ -324,8 +323,8 @@
                     <TextView
                         android:id="@+id/textTotal"
                         style="@style/textStylePrint"
-                        
-                         />
+
+                        />
 
                 </LinearLayout>
 
@@ -369,7 +368,7 @@
                     <TextView
                         android:id="@+id/textTotalAfterDiscount"
                         style="@style/textStylePrint"
-                        
+
                         />
 
                 </LinearLayout>
@@ -384,7 +383,7 @@
                     <TextView
                         style="@style/textStylePrint"
                         android:text="@string/tax"
-                         />
+                        />
 
                     <TextView
                         style="@style/textStylePrint"
@@ -395,7 +394,7 @@
                         android:id="@+id/textTax"
                         style="@style/textStylePrint"
 
-                         />
+                        />
 
                 </LinearLayout>
 
@@ -405,7 +404,7 @@
                     <TextView
                         style="@style/textStylePrint"
                         android:text="@string/totalMoney"
-                         />
+                        />
 
                     <TextView
                         style="@style/textStylePrint"
@@ -415,7 +414,7 @@
                         android:id="@+id/textTotalAfter"
                         style="@style/textStylePrint"
 
-                         />
+                        />
 
                 </LinearLayout>
 
@@ -426,7 +425,7 @@
                     <TextView
                         style="@style/textStylePrint"
                         android:text="@string/paid"
-                         />
+                        />
 
                     <TextView
                         style="@style/textStylePrint"
@@ -437,7 +436,7 @@
                         android:id="@+id/textPaid"
                         style="@style/textStylePrint"
                         android:text="232"
-                         />
+                        />
 
                 </LinearLayout>
 
@@ -448,7 +447,7 @@
                     <TextView
                         style="@style/textStylePrint"
                         android:text="@string/unPaid"
-                         />
+                        />
 
                     <TextView
                         style="@style/textStylePrint"
@@ -459,7 +458,7 @@
                         android:id="@+id/textUnPaid"
                         style="@style/textStylePrint"
                         android:text="3232 "
-                         />
+                        />
 
                 </LinearLayout>
 
@@ -473,7 +472,7 @@
                 <TextView
                     style="@style/textStylePrint"
                     android:text="@string/delegateName2"
-                     />
+                    />
 
                 <TextView
                     style="@style/textStylePrint"
@@ -483,14 +482,13 @@
                     android:id="@+id/textDelegateName"
                     style="@style/textStylePrint"
                     android:text="@string/clientName2"
-                     />
+                    />
 
             </LinearLayout>
 
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
-
 
     <LinearLayout
         android:id="@+id/footer"

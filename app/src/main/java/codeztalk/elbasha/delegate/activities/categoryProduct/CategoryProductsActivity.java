@@ -40,6 +40,7 @@ import static codeztalk.elbasha.delegate.helper.ProgressDialogHelper.removeSimpl
 import static codeztalk.elbasha.delegate.helper.ProgressDialogHelper.showSimpleProgressDialog;
 
 public class CategoryProductsActivity extends BaseActivity {
+
     private static final String TAG = CategoryProductsActivity.class.getSimpleName();
     private RecyclerView recyclerCategories;
     CategoryAdapter categoryAdapter;
@@ -62,11 +63,8 @@ public class CategoryProductsActivity extends BaseActivity {
 
     public void getProducts(String catName) {
         productArrayList.clear();
-
-
         productArrayList.addAll(db.getAllCategoryProducts(catName));
         productCategoryAdapter.notifyDataSetChanged();
-
     }
 
     @Override
@@ -173,7 +171,8 @@ public class CategoryProductsActivity extends BaseActivity {
         recyclerProducts.setLayoutManager(productLayoutManager);
 
         categoryAdapter = new CategoryAdapter(categoryArrayList, this, CategoryProductsActivity.this);
-        productCategoryAdapter = new ProductCategoryAdapter(productArrayList, this, CategoryProductsActivity.this);
+        productCategoryAdapter = new ProductCategoryAdapter(productArrayList,
+                this, CategoryProductsActivity.this);
 
         recyclerCategories.setAdapter(categoryAdapter);
         recyclerProducts.setAdapter(productCategoryAdapter);
@@ -190,8 +189,6 @@ public class CategoryProductsActivity extends BaseActivity {
     }
 
     private void getProductsOffline() {
-
-
         categoryArrayList.addAll(db.getAllCategory());
         categoryAdapter.notifyDataSetChanged();
 
@@ -257,7 +254,8 @@ public class CategoryProductsActivity extends BaseActivity {
 
         call.enqueue(new Callback<List<CategoryProductModel>>() {
             @Override
-            public void onResponse(@NonNull Call<List<CategoryProductModel>> call, @NonNull Response<List<CategoryProductModel>> response) {
+            public void onResponse(@NonNull Call<List<CategoryProductModel>> call,
+                                   @NonNull Response<List<CategoryProductModel>> response) {
                 removeSimpleProgressDialog();
 
                 Log.e("address : ", "  ## :  ## " + new Gson().toJson(response.body()));

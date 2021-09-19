@@ -127,8 +127,6 @@ public class ForsahDB extends SQLiteOpenHelper {
             SQLiteDatabase db = this.getWritableDatabase();
             db.execSQL("delete  from client");
             db.close();
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
