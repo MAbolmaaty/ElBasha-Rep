@@ -62,7 +62,8 @@ public class HomeFragment extends BaseFragment {
     private ConnectedDevice mConnectedDevice;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         super.onCreateView(inflater, container, R.layout.fragment_home);
         mPrinterViewModel = ViewModelProviders.of(getActivity()).get(PrinterViewModel.class);
         mPrinterViewModel.getPrinter().observe(this, new Observer<ConnectedDevice>() {
@@ -232,7 +233,8 @@ public class HomeFragment extends BaseFragment {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerDays.setLayoutManager(mLayoutManager);
 
-        DayFilterAdapter dayAdapter = new DayFilterAdapter(dayModelArrayList, getActivity(), HomeFragment.this);
+        DayFilterAdapter dayAdapter =
+                new DayFilterAdapter(dayModelArrayList, getActivity(), HomeFragment.this);
         recyclerDays.setAdapter(dayAdapter);
         dayAdapter.notifyDataSetChanged();
     }

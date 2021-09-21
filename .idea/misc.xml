@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/background_button.xml" value="0.26481481481481484" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/bg_oval.xml" value="0.2712820512820513" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/bg_rectangle_corners_18.xml" value="0.13072916666666667" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/bg_rectangle_primary.xml" value="0.13072916666666667" />
@@ -10,11 +11,13 @@
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/aa.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_add_invoice.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_category_products.xml" value="0.259375" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_credit.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_device_list.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_home.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_splash.xml" value="0.259375" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_stock.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_task_print.xml" value="0.264" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_task_print2.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/fragment_dashboard.xml" value="0.259375" />

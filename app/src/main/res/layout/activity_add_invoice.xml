@@ -341,10 +341,17 @@
 
         <TextView
             android:id="@+id/textSend"
-            style="@style/buttonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
             android:layout_margin="@dimen/_8sdp"
             android:layout_weight="1"
             android:text="@string/send"
+            android:padding="@dimen/_8sdp"
+            android:gravity="center"
+            android:background="@drawable/background_button"
+            android:backgroundTint="@android:color/darker_gray"
+            android:textColor="#FFDCD4D4"
             android:textSize="@dimen/_11sdp" />
     </LinearLayout>
 

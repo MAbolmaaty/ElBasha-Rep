@@ -1,19 +1,24 @@
 package codeztalk.elbasha.delegate.activities;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -69,6 +74,8 @@ public class AddInvoiceActivity extends BaseActivity {
     InvoiceModel invoiceModel;
     boolean isCash = true;
     private ConnectedDevice mConnectedDevice;
+    private boolean paymentMethodSelected;
+    private Toast mToast;
 //    private boolean validateInputs() {
 //        if (isEmpty(editInvoiceNumber)) {
 //            editInvoiceNumber.setError(AddInvoiceActivity.this.getString(R.string.empty_invoice_error));
@@ -97,24 +104,20 @@ public class AddInvoiceActivity extends BaseActivity {
 
         imageBack.setOnClickListener(v -> onBackPressed());
 
+        RadioGroup radioGroupPaymentMethod = findViewById(R.id.RadioGroup);
         RadioButton radioCash = findViewById(R.id.radioCash);
         RadioButton radioNoCash = findViewById(R.id.radioNoCash);
 
 
         radioCash.setOnClickListener(v -> {
-
-
             isCash = true;
             calculatePrice(true);
-
         });
 
         radioNoCash.setOnClickListener(v -> {
-
             editPaid.setText("0");
             isCash = false;
             calculatePrice(false);
-
         });
 
 
@@ -133,12 +136,43 @@ public class AddInvoiceActivity extends BaseActivity {
         editDiscount = findViewById(R.id.editDiscount);
 //        editInvoiceNumber = findViewById(R.id.editInvoiceNumber);
         editNotes = findViewById(R.id.editNotes);
-
+        paymentMethodSelected = false;
 
         textUpdate.setOnClickListener(v -> onBackPressed());
 
+        radioGroupPaymentMethod.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (!paymentMethodSelected){
+                    Drawable buttonDrawable = textSend.getBackground();
+                    buttonDrawable = DrawableCompat.wrap(buttonDrawable);
+                    DrawableCompat.setTint(buttonDrawable,
+                            ContextCompat.getColor(AddInvoiceActivity.this,
+                                    R.color.colorAccent));
+                    textSend.setBackground(buttonDrawable);
+                    textSend.setTextColor(ContextCompat.getColor(AddInvoiceActivity.this,
+                            R.color.white));
+                    paymentMethodSelected = true;
+                }
 
-        textSend.setOnClickListener(v -> addNewInvoice());
+            }
+        });
+
+        textSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (radioGroupPaymentMethod.getCheckedRadioButtonId() != -1) {
+                    AddInvoiceActivity.this.addNewInvoice();
+                } else {
+                    if (mToast != null){
+                        mToast.cancel();
+                    }
+                    mToast = Toast.makeText(AddInvoiceActivity.this,
+                            "اختر طريقة الدفع اولا", Toast.LENGTH_SHORT);
+                    mToast.show();
+                }
+            }
+        });
 //        textSend.setOnClickListener(v -> launchPrint("25"));
 //
         initializeHoursOffline();

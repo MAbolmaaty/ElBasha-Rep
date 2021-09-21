@@ -117,7 +117,8 @@ public class CategoryProductsActivity extends BaseActivity {
 
         textProceed.setOnClickListener(v -> {
             if (Double.parseDouble(textTotal.getText().toString()) > 0) {
-                Intent i = new Intent(CategoryProductsActivity.this, AddInvoiceActivity.class);
+                Intent i = new Intent(CategoryProductsActivity.this,
+                        AddInvoiceActivity.class);
                 i.putExtra("clientModel", clientModel);
                 if (mConnectedDevice != null){
                     i.putExtra("printer_name", mConnectedDevice.getName());
@@ -126,7 +127,8 @@ public class CategoryProductsActivity extends BaseActivity {
                 startActivity(i);
                 finish();
             } else {
-                Toast.makeText(CategoryProductsActivity.this, R.string.productError, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CategoryProductsActivity.this, R.string.productError,
+                        Toast.LENGTH_SHORT).show();
 
             }
 

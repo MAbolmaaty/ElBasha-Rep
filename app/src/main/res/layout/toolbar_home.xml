@@ -39,6 +39,7 @@
         android:layout_height="@dimen/_12sdp"
         android:src="@drawable/ic_fez"
         app:tint="@android:color/white"
+        android:visibility="invisible"
         android:layout_marginTop="@dimen/_4sdp"
         app:layout_constraintStart_toStartOf="@+id/app_logo"
         app:layout_constraintTop_toTopOf="@+id/app_logo"/>

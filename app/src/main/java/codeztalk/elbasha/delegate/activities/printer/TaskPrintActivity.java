@@ -414,22 +414,20 @@ public class TaskPrintActivity extends BaseActivity {
                     TscDll.printlabel(1, quantityNo);
                     TscDll.clearbuffer();
                     TscDll.setup(paperWidth, 40,
-                            printerSpeed, printerDensity, 0, 0, 0);
-                    TscDll.qrcode(300,
-                            0, "H", "5", "A","0","M2",
-                            "S7", "مؤسسـة حسـين حـــامد الحـربى للحـلويـات");
+                            printerSpeed, 4, 0, 0, 0);
+                    String content = "مؤسسـة حسـين حـــامد الحـربى للحـلويـات" + "\n" +
+                            "فاتورة ضريبية رقم : " + textInvoiceNumber.getText().toString() + "\n" +
+                            "اسم العميل : " + textClientName.getText().toString() + "\n" +
+                            "الرقم الضريبي : " + "310213123900003" + "\n" +
+                            "التاريخ : " + textDate.getText().toString() + "\n" +
+                            "التوقيت : " + textTime.getText().toString() + "\n" +
+                            "اجمالي المبلغ شامل الضريبة : " + textTotalAfter.getText().toString()
+                            + "\n" +
+                            "القيمة الضريبية : " + textTax.getText().toString();
+                    TscDll.qrcode(280,
+                            0, "L", "4", "A","0","M2",
+                            "S7", content);
                     TscDll.printlabel(1, quantityNo);
-                    //TscDll.sendcommand("TEXT 10,10,\"1\",0,12,12,\"EM\"\r\n");
-//                    TscDll.printlabel(1, quantityNo);
-//                    TscDll.sendcommand("CLS");
-//                    TscDll.sendcommand("TEXT 10,10,\"1\",0,12,12,\"EM\"\r\n");
-//                    TscDll.sendbitmap_resize(0, 0, bitmap,
-//                           imageWidth, Math.round(getImageHeight()));
-
-
-//                        TscDll.sendbitmap(0, 0, bitmap);
-
-
 //                        TscDll.closeport();
 
                 } catch (Exception e) {
