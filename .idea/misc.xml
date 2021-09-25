@@ -7,10 +7,14 @@
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/bg_oval.xml" value="0.2712820512820513" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/bg_rectangle_corners_18.xml" value="0.13072916666666667" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/bg_rectangle_primary.xml" value="0.13072916666666667" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/dot.xml" value="0.2518518518518518" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/ic_close.xml" value="0.2518518518518518" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/radio_bg.xml" value="0.2601851851851852" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/drawable/splash_background.xml" value="0.2712820512820513" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/aa.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_add_invoice.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_category_products.xml" value="0.259375" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_client_profile.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_credit.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_device_list.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/activity_home.xml" value="0.259375" />
@@ -23,11 +27,14 @@
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/fragment_dashboard.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/fragment_home.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/fragment_profile.xml" value="0.259375" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/item_day_filter.xml" value="0.259375" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/layout_recycler.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/row_list.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/toolbar_activity.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/toolbar_home.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/toolbar_home2.xml" value="0.259375" />
         <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/layout/toolbar_search.xml" value="0.12291666666666666" />
+        <entry key="..\:/Users/muham/Downloads/ElBash Android App/Delegate/Delegate/app/src/main/res/menu/bottom_nav_menu.xml" value="0.259375" />
       </map>
     </option>
   </component>

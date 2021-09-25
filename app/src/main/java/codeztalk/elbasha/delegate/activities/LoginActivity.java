@@ -96,9 +96,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void launchHome() {
-
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-
         startActivity(intent);
         finish();
 
@@ -106,8 +104,6 @@ public class LoginActivity extends BaseActivity {
 
 
     void login() {
-        Log.d(TAG, "Login button pressed");
-
         showSimpleProgressDialog(this, false);
 
         AndroidNetworking.post(baseURL + authenticate)
@@ -121,15 +117,11 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         // do anything with response
-
                         Log.e("response", " >>" + response);
-
                         try {
                             String userToken = response.getString("access_token");
-//                            String userToken = "FOZcM3Gy9mtClCQfTbkZa6jcJhO1dV9rNFzAHOCLjKFIckFTX7jUOguOd6FblzNjQDAHpLO6CdEEP1Pn4PDeoSOD29LcQ4WCmAt_oE__rscgG45913F-QrRUcsvtc-mP_BPVEoewNQpx4ii2htrMMZ9-o-E0Gxb7LVV9nPtXNQ_TRDFg_HFAMjisfiPPiCUw8206IgQnr92e04nIsQ5G0UHNxtAsKl5Int1SSH7kG9vGVr1s7lqvbCEBKCk9wdCws510Rgb7bgy9am-zkxu_eTZD19oSpwiKcDtbzj1FRdI";
                             preferenceHelper.setUserToken("Bearer " + userToken);
-                             getEmployeeProfile(editEmail.getText().toString(), "Bearer " + userToken);
-
+                            getEmployeeProfile(editEmail.getText().toString(), "Bearer " + userToken);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -157,21 +149,15 @@ public class LoginActivity extends BaseActivity {
     EmployeeModel employeeModel;
 
     private void getEmployeeProfile(String userName, String token) {
-        Log.e("userName", "" + userName);
-        Log.e("token", "" + token);
-
-
         ApiService apiInterface = ApiClient.getClient().create(ApiService.class);
 
         Call<EmployeeModel> call = apiInterface.getEmployeeProfileByName(userName, token);
 
         call.enqueue(new Callback<EmployeeModel>() {
             @Override
-            public void onResponse(@NonNull Call<EmployeeModel> call, @NonNull Response<EmployeeModel> response) {
+            public void onResponse(@NonNull Call<EmployeeModel> call,
+                                   @NonNull Response<EmployeeModel> response) {
                 removeSimpleProgressDialog();
-
-                Log.e("getEmployeeProfile ", " >>" + response);
-
 
                 if (response.body() != null) {
 
@@ -194,7 +180,6 @@ public class LoginActivity extends BaseActivity {
                 removeSimpleProgressDialog();
                 Log.e("fail", "is : " + call.toString());
                 t.printStackTrace();
-
             }
         });
     }

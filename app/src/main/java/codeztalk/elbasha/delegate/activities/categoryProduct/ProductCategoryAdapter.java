@@ -79,7 +79,6 @@ public class ProductCategoryAdapter
                                   CategoryProductsActivity allProductsActivity) {
         this.mDataSetFiltered = mDataSet;
         this.mDataSet = mDataSet;
-
         this.context = context;
         this.allProductsActivity = allProductsActivity;
         db = new ForsahDB(context);
@@ -87,17 +86,12 @@ public class ProductCategoryAdapter
     }
 
     public static class DataObjectHolder extends RecyclerView.ViewHolder {
-
-
         private EditText editAmount;
         private EditText editPrice;
         ImageView imagePlus;
         ImageView imageMinus;
-
         RadioButton radioUnit;
         RadioButton radioBox;
-
-
         private TextView textProductName;
         private TextView textProductEN;
         private TextView textPrice;
@@ -136,7 +130,8 @@ public class ProductCategoryAdapter
 
     @Override
     public DataObjectHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.aa, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.aa,
+                parent, false);
         context = parent.getContext();
 
         return new DataObjectHolder(view);
@@ -300,10 +295,9 @@ public class ProductCategoryAdapter
 
                        }
 
-                       //TODO : Change : if (productModel.getType()==0)
+
                     if (Integer.parseInt(charSequence.toString()) <= productModel.getUnitStockQty()
                          &&productModel.getType()==0)
-//                        if (productModel.getType()==0)
 
                         {
 

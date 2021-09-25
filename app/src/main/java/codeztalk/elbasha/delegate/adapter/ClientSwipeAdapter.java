@@ -30,7 +30,8 @@ import codeztalk.elbasha.delegate.swipereveallayout.SwipeRevealLayout;
 import codeztalk.elbasha.delegate.swipereveallayout.ViewBinderHelper;
 
 
-public class ClientSwipeAdapter extends RecyclerView.Adapter<ClientSwipeAdapter.ViewHolder> implements Filterable {
+public class ClientSwipeAdapter extends RecyclerView.Adapter<ClientSwipeAdapter.ViewHolder>
+        implements Filterable {
 
     private final List<ClientModel> mDataSet;
     private List<ClientModel> mDataSetFiltered;

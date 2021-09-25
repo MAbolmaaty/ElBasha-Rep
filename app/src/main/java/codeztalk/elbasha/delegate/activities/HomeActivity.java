@@ -78,10 +78,7 @@ public class HomeActivity extends BaseActivity {
                 if (currentTime - preferenceHelper.getUserDate() > millisHour) {
                     preferenceHelper.setUserDate(currentTime);
                     onNewLocation(locationResult.getLastLocation());
-
-
                 }
-
             }
         };
 

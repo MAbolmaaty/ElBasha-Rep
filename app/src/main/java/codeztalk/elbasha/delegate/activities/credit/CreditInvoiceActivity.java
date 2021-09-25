@@ -1,5 +1,10 @@
 package codeztalk.elbasha.delegate.activities.credit;
 
+import static codeztalk.elbasha.delegate.helper.printerUtil.imageWidth;
+import static codeztalk.elbasha.delegate.helper.printerUtil.paperWidth;
+import static codeztalk.elbasha.delegate.helper.printerUtil.printerDensity;
+import static codeztalk.elbasha.delegate.helper.printerUtil.printerSpeed;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
@@ -13,6 +18,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,14 +31,10 @@ import codeztalk.elbasha.delegate.activities.BaseActivity;
 import codeztalk.elbasha.delegate.helper.MyHelpers;
 import codeztalk.elbasha.delegate.models.InvoiceModel;
 
-import static codeztalk.elbasha.delegate.helper.printerUtil.imageWidth;
-import static codeztalk.elbasha.delegate.helper.printerUtil.paperWidth;
-import static codeztalk.elbasha.delegate.helper.printerUtil.printerDensity;
-import static codeztalk.elbasha.delegate.helper.printerUtil.printerSpeed;
-
 
 public class CreditInvoiceActivity extends BaseActivity {
 
+    private static final String TAG = CreditInvoiceActivity.class.getSimpleName();
 
     TSCActivity TscDll;
     Button scan, connectButton, task_button_print;
@@ -59,17 +61,25 @@ public class CreditInvoiceActivity extends BaseActivity {
     TextView textPaid;
     TextView textUnPaid;
 
+    InvoiceModel invoiceModel;
+
+    FrameLayout mIcPrinterFrame;
+    TextView mPrinterName;
+    FrameLayout mIcCheckFrame;
+
+    boolean bDiscoveryStarted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit);
 
+        Log.d(TAG, "CreditInvoiceActivity OnCreate");
+
         ImageView imageBack = findViewById(R.id.imageBack);
         TextView textToolbar = findViewById(R.id.textToolbar);
         textToolbar.setText(getString(R.string.invoiceDetail2));
         imageBack.setOnClickListener(v -> onBackPressed());
-
 
         //button
         scan = findViewById(R.id.search);
@@ -85,6 +95,10 @@ public class CreditInvoiceActivity extends BaseActivity {
         textDelegateName = findViewById(R.id.textDelegateName);
         textUnPaid = findViewById(R.id.textUnPaid);
         textPaid = findViewById(R.id.textPaid);
+
+        mIcPrinterFrame = findViewById(R.id.icPrinterFrame);
+        mPrinterName = findViewById(R.id.printerName);
+        mIcCheckFrame = findViewById(R.id.icCheckFrame);
 
         // Get local Bluetooth adapter
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -115,125 +129,26 @@ public class CreditInvoiceActivity extends BaseActivity {
 
     }
 
-
-    InvoiceModel invoiceModel;
-
-    void initializeInvoice() {
-
-        invoiceModel = (InvoiceModel) getIntent().getSerializableExtra("invoiceModel");
-
-
-        if (invoiceModel != null) {
-            textDate.setText(MyHelpers.getCurrentDate());
-            textInvoiceNumber.setText(invoiceModel.getInvoiceNumber());
-            textClientName.setText(invoiceModel.getClientName());
-//            textTotal.setText(String.valueOf(invoiceModel.getTotalAfter()));
-            textTotal.setText(String.valueOf(invoiceModel.getPaid()+invoiceModel.getUnPaid()));
-            textDelegateName.setText(invoiceModel.getDelgateMan());
-            textPaid.setText(String.valueOf(invoiceModel.getPaid()));
-            textUnPaid.setText(String.valueOf(invoiceModel.getUnPaid()));
-
-        }
-
-
-    }
-
-
     @Override
     protected void onDestroy() {
-
         super.onDestroy();
         try {
-            if(connected)
-            {
+            if (connected) {
                 connected = false;
                 TscDll.closeport();
                 TscDll = null;
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-
-    void shareImage(View view) {
-        view.setDrawingCacheEnabled(true);
-
-        Log.e("getWidth", "" + view.getWidth());
-        Log.e("getHeight", "" + view.getHeight());
-
-//        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-        view.setDrawingCacheEnabled(false);
-        Canvas canvas = new Canvas(bitmap);
-        Drawable bgDrawable = view.getBackground();
-        if (bgDrawable != null)
-            bgDrawable.draw(canvas);
-        else
-            canvas.drawColor(Color.WHITE);
-        view.draw(canvas);
-
-
-        new Handler().postDelayed(() -> {
-
-
-            if (mPrintThread != null)
-                mPrintThread.interrupt();
-
-            mPrintThread = new Thread(() -> {
-                Looper.prepare();
-
-
-                if (address != null && !address.equals("")) {
-                    if (!connected) {
-
-                        TscDll.openport(address);
-                    }
-                    TscDll.downloadpcx("UL.PCX");
-//                    TscDll.downloadttf("ARIAL.TTF");
-                    try {
-
-//                        TscDll.setup(95, 120, 4, 7, 0, 0, 0);
-                        TscDll.setup(paperWidth, 100, printerSpeed, printerDensity, 0, 0, 0);
-
-                        TscDll.clearbuffer();
-                        TscDll.sendcommand("SET TEAR ON\n");
-                         TscDll.sendcommand("PUTPCX 100,300,\"UL.PCX\"\n");
-
-
-                        TscDll.sendbitmap_resize(0, 0, bitmap, imageWidth, 950);
-
-                        TscDll.printlabel(1, Integer.parseInt(quantityno));
-//                        TscDll.closeport();
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
-                } else {
-                    Toast.makeText(CreditInvoiceActivity.this, "Please connect to printer first.", Toast.LENGTH_LONG).show();
-                }
-
-
-            });
-            mPrintThread.start();
-
-
-        }, 500);
-
-
-    }
-
-
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         if (mBluetoothAdapter.isEnabled()) {
             try {
-                if(connected)
-                {
+                if (connected) {
                     connected = false;
                     TscDll.closeport();
                     TscDll = null;
@@ -244,25 +159,11 @@ public class CreditInvoiceActivity extends BaseActivity {
             }
             mBluetoothAdapter.disable();
         }
-
-
         finish();
-    }
-
-    boolean bDiscoveryStarted = false;
-
-    void startDiscovery() {
-        if (bDiscoveryStarted)
-            return;
-        bDiscoveryStarted = true;
-        // Launch the DeviceCreditActivity to see devices and do scan
-        Intent serverIntent = new Intent(this, DeviceCreditActivity.class);
-        startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
         if (requestCode == REQUEST_CONNECT_DEVICE) {
 
             //addLog("onActivityResult: requestCode==REQUEST_CONNECT_DEVICE");
@@ -275,8 +176,7 @@ public class CreditInvoiceActivity extends BaseActivity {
                 //addLog("onActivityResult: got device=" + address);
 
 
-                if (addres != null)
-                {
+                if (addres != null) {
                     TscDll.openport(address);
                     connected = true;
                 }
@@ -297,7 +197,6 @@ public class CreditInvoiceActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
     @Override
     protected void onStart() {
         if (mBluetoothAdapter != null) {
@@ -312,5 +211,79 @@ public class CreditInvoiceActivity extends BaseActivity {
         super.onStart();
     }
 
+    void initializeInvoice() {
+        invoiceModel = (InvoiceModel) getIntent().getSerializableExtra("invoiceModel");
+        if (invoiceModel != null) {
+            textDate.setText(MyHelpers.getCurrentDate());
+            textInvoiceNumber.setText(invoiceModel.getInvoiceNumber());
+            textClientName.setText(invoiceModel.getClientName());
+            textTotal.setText(String.valueOf(invoiceModel.getPaid() + invoiceModel.getUnPaid()));
+            textDelegateName.setText(invoiceModel.getDelgateMan());
+            textPaid.setText(String.valueOf(invoiceModel.getPaid()));
+            textUnPaid.setText(String.valueOf(invoiceModel.getUnPaid()));
+        }
+    }
+
+    void shareImage(View view) {
+        view.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        view.setDrawingCacheEnabled(false);
+        Canvas canvas = new Canvas(bitmap);
+        Drawable bgDrawable = view.getBackground();
+        if (bgDrawable != null)
+            bgDrawable.draw(canvas);
+        else
+            canvas.drawColor(Color.WHITE);
+        view.draw(canvas);
+
+        new Handler().postDelayed(() -> {
+
+            if (mPrintThread != null)
+                mPrintThread.interrupt();
+
+            mPrintThread = new Thread(() -> {
+                Looper.prepare();
+
+                if (address != null && !address.equals("")) {
+                    if (!connected) {
+
+                        TscDll.openport(address);
+                    }
+                    TscDll.downloadpcx("UL.PCX");
+                    try {
+                        TscDll.setup(paperWidth, 100, printerSpeed,
+                                printerDensity, 0, 0, 0);
+
+                        TscDll.clearbuffer();
+                        TscDll.sendcommand("SET TEAR ON\n");
+                        TscDll.sendcommand("PUTPCX 100,300,\"UL.PCX\"\n");
+
+
+                        TscDll.sendbitmap_resize(0, 0, bitmap, imageWidth,
+                                950);
+
+                        TscDll.printlabel(1, Integer.parseInt(quantityno));
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } else {
+                    Toast.makeText(CreditInvoiceActivity.this,
+                            "Please connect to printer first.", Toast.LENGTH_LONG).show();
+                }
+            });
+            mPrintThread.start();
+        }, 500);
+    }
+
+    void startDiscovery() {
+        if (bDiscoveryStarted)
+            return;
+        bDiscoveryStarted = true;
+        // Launch the DeviceCreditActivity to see devices and do scan
+        Intent serverIntent = new Intent(this, DeviceCreditActivity.class);
+        startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
+    }
 }
 

@@ -6,17 +6,10 @@
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
 
-<!--    <item-->
-<!--        android:id="@+id/navigation_pocket"-->
-<!--        android:icon="@drawable/ic_pocket"-->
-<!--        android:visible="false"-->
-<!--        android:title="@string/pocket" />-->
-
     <item
         android:id="@+id/navigation_invoices"
         android:icon="@drawable/ic_bill"
         android:title="@string/all_invoices" />
-
 
     <item
         android:id="@+id/navigation_credit"
@@ -32,8 +25,4 @@
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_person"
         android:title="@string/profile" />
-
-
-
-
 </menu>

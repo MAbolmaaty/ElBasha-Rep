@@ -26,7 +26,8 @@ import codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment;
 import codeztalk.elbasha.delegate.helper.MyHelpers;
 import codeztalk.elbasha.delegate.models.ClientInvoiceModel;
 
-public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.DataObjectHolder> implements Filterable {
+public class InvoiceAdapter extends
+        RecyclerView.Adapter<InvoiceAdapter.DataObjectHolder> implements Filterable {
     private List<ClientInvoiceModel> mDataSet;
     private List<ClientInvoiceModel> mDataSetFiltered;
 

@@ -152,17 +152,17 @@
                             android:id="@+id/radioCash"
                             style="@style/myRadioStyle"
                             android:text="@string/payCash"
+                            android:background="@android:color/transparent"
                             app:buttonCompat="@null" />
 
                         <RadioButton
                             android:id="@+id/radioNoCash"
                             style="@style/myRadioStyle"
                             android:text="@string/pay2"
+                            android:background="@android:color/transparent"
                             app:buttonCompat="@null" />
 
-
                     </RadioGroup>
-
 
                 </LinearLayout>
 

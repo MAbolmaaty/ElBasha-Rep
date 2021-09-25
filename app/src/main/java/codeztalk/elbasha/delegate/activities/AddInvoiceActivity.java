@@ -1,5 +1,8 @@
 package codeztalk.elbasha.delegate.activities;
 
+import static codeztalk.elbasha.delegate.helper.ProgressDialogHelper.removeSimpleProgressDialog;
+import static codeztalk.elbasha.delegate.helper.ProgressDialogHelper.showSimpleProgressDialog;
+
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -48,9 +51,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static codeztalk.elbasha.delegate.helper.ProgressDialogHelper.removeSimpleProgressDialog;
-import static codeztalk.elbasha.delegate.helper.ProgressDialogHelper.showSimpleProgressDialog;
-
 
 public class AddInvoiceActivity extends BaseActivity {
     private static final String TAG = AddInvoiceActivity.class.getSimpleName();
@@ -93,7 +93,7 @@ public class AddInvoiceActivity extends BaseActivity {
         Log.d(TAG, "AddInvoiceActivity created");
         db = new ForsahDB(this);
         clientModel = (ClientModel) getIntent().getSerializableExtra("clientModel");
-        if (getIntent().getStringExtra("printer_mac_address") != null){
+        if (getIntent().getStringExtra("printer_mac_address") != null) {
             mConnectedDevice = new ConnectedDevice(getIntent().getStringExtra("printer_name"),
                     getIntent().getStringExtra("printer_mac_address"));
         }
@@ -143,7 +143,7 @@ public class AddInvoiceActivity extends BaseActivity {
         radioGroupPaymentMethod.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (!paymentMethodSelected){
+                if (!paymentMethodSelected) {
                     Drawable buttonDrawable = textSend.getBackground();
                     buttonDrawable = DrawableCompat.wrap(buttonDrawable);
                     DrawableCompat.setTint(buttonDrawable,
@@ -162,9 +162,9 @@ public class AddInvoiceActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (radioGroupPaymentMethod.getCheckedRadioButtonId() != -1) {
-                    AddInvoiceActivity.this.addNewInvoice();
+                    addNewInvoice();
                 } else {
-                    if (mToast != null){
+                    if (mToast != null) {
                         mToast.cancel();
                     }
                     mToast = Toast.makeText(AddInvoiceActivity.this,
@@ -218,7 +218,7 @@ public class AddInvoiceActivity extends BaseActivity {
         Intent i = new Intent(AddInvoiceActivity.this, TaskPrintActivity.class);
         i.putExtra("invoiceModel", invoiceModel);
         i.putExtra("clientModel", clientModel);
-        if (mConnectedDevice != null){
+        if (mConnectedDevice != null) {
             i.putExtra("printer_name", mConnectedDevice.getName());
             i.putExtra("printer_mac_address", mConnectedDevice.getMacAddress());
         }
@@ -258,19 +258,16 @@ public class AddInvoiceActivity extends BaseActivity {
 
             public void afterTextChanged(Editable editable) {
 
-             }
+            }
 
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if (!charSequence.toString().equalsIgnoreCase("")
-                        && Double.parseDouble(charSequence.toString()) < finalPrice)
-                {
+                        && Double.parseDouble(charSequence.toString()) < finalPrice) {
                     calculatePrice(false);
+                } else {
+                    Log.e("conan", "unPaidPrice =");
                 }
-                else
-                    {
-                        Log.e("conan", "unPaidPrice =");
-                    }
             }
         });
 
@@ -329,13 +326,9 @@ public class AddInvoiceActivity extends BaseActivity {
     public void calculatePrice(boolean is_cash) {
         if (!editDiscount.getText().toString().equalsIgnoreCase("")) {
             discountValue = Double.parseDouble(editDiscount.getText().toString());
-
+        } else {
+            discountValue = 0;
         }
-        else
-            {
-                discountValue=0;
-            }
-
 
         totalAfterDiscount = totalPrice - discountValue;
         textTotalAfterDiscount.setText(String.format("%s", totalAfterDiscount));
@@ -346,27 +339,15 @@ public class AddInvoiceActivity extends BaseActivity {
 
 
         if (is_cash) {
-
-//            paidPrice = finalPrice;
-
             editPaid.setEnabled(false);
             editPaid.setText(String.format("%s", finalPrice));
-
             Log.e("true", "unPaidPrice =" + unPaidPrice);
 
         } else {
             editPaid.setEnabled(true);
-
-
-
-
             Log.e("false", "unPaidPrice =" + unPaidPrice);
-
-
-
         }
         unPaidPrice = finalPrice - Double.parseDouble(editPaid.getText().toString());
-
 
         textUnPaid.setText(new DecimalFormat("##.##", new DecimalFormatSymbols(Locale.US)).
                 format(unPaidPrice));
@@ -454,8 +435,6 @@ public class AddInvoiceActivity extends BaseActivity {
                         launchPrint(addInvoiceResponse.getInvoiceTaxNumber());
 
                     } else {
-                        //TODO : Remove : launchPrint("231132");
-                        launchPrint("231132");
                         Log.e("addInvoiceResponse : ", "  >>==> " + response.message());
                         Toast.makeText(AddInvoiceActivity.this,
                                 "" + response.message(), Toast.LENGTH_SHORT).show();

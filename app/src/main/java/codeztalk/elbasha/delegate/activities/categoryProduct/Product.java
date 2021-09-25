@@ -70,11 +70,6 @@ public class Product {
         this.mProductNameEN = mProductNameEN;
         this.mUnitPrice = mUnitPrice;
         this.mUnitStockQty = unitStockQty;
-        // TODO : Remove this
-        if (unitStockQty == 0){
-            this.mUnitStockQty = 6;
-        }
-        // Until here
         this.mCategoryNameEN = categoryName;
         this.mCategoryNameAR = categoryAR;
         this.OfficialUnitPrice = OfficialUnitPrice;

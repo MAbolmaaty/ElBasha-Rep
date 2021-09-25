@@ -8,6 +8,7 @@ import static codeztalk.elbasha.delegate.helper.printerUtil.printerSpeed;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -109,7 +110,8 @@ public class TaskPrintActivity extends BaseActivity {
 
         mPreferenceHelper = new PreferenceHelper(this);
 
-        clientInvoiceModel = (ClientInvoiceModel) getIntent().getSerializableExtra("clientInvoiceModel");
+        clientInvoiceModel =
+                (ClientInvoiceModel) getIntent().getSerializableExtra("clientInvoiceModel");
         invoiceModel = (InvoiceModel) getIntent().getSerializableExtra("invoiceModel");
         clientModel = (ClientModel) getIntent().getSerializableExtra("clientModel");
         if (getIntent().getStringExtra("printer_mac_address") != null) {
@@ -166,40 +168,12 @@ public class TaskPrintActivity extends BaseActivity {
             startDiscovery();
         });
         task_button_print.setOnClickListener(v -> {
-            Log.d(TAG, "print button clicked");
             shareImage(linearInvoice);
-            //printQrCode();
         });
-//        scan.setOnClickListener(v -> shareImage(linearInvoice));
 
         initializeInvoice();
 
-//        String qrCodeText = "em";
-//
-//        MultiFormatWriter writer = new MultiFormatWriter();
-//
-//        try {
-//            BitMatrix matrix = writer.encode(qrCodeText, BarcodeFormat.QR_CODE,
-//                    350, 350);
-//
-//            BarcodeEncoder encoder = new BarcodeEncoder();
-//
-//            Bitmap bitmap = encoder.createBitmap(matrix);
-//
-//            mIcQrCode.setImageBitmap(bitmap);
-//
-//        } catch (WriterException e) {
-//            e.printStackTrace();
-//        }
     }
-
-//    private void printQrCode(){
-//        TSCActivity tscActivity = new TSCActivity();
-//        tscActivity.openport(mConnectedDevice.getMacAddress());
-//        tscActivity.qrcode(5, 5, "H", "2 x 2", "alphanumeric",
-//                "0", "Model 1", "0", "EM");
-//        tscActivity.printlabel(1, 1);
-//    }
 
     @Override
     protected void onResume() {
@@ -364,14 +338,9 @@ public class TaskPrintActivity extends BaseActivity {
         hoursOfflineAdapter.notifyDataSetChanged();
     }
 
-
     void shareImage(View view) {
         view.setDrawingCacheEnabled(true);
 
-        Log.e("getWidth", "" + view.getWidth());
-        Log.e("getHeight", "" + view.getHeight());
-
-//        Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
         Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),
                 Bitmap.Config.ARGB_8888);
         view.setDrawingCacheEnabled(false);
@@ -384,10 +353,7 @@ public class TaskPrintActivity extends BaseActivity {
         }
         view.draw(canvas);
 
-
-        Log.e("getImageHeight", " px >> " + Math.round(getImageHeight()));
-        Log.e("getPaperHeight", " mm >> " + Math.round(getPaperHeight()));
-
+        quantityNo = 1;
 
         new Handler().postDelayed(() -> {
             if (mPrintThread != null)
@@ -396,40 +362,55 @@ public class TaskPrintActivity extends BaseActivity {
             mPrintThread = new Thread(() -> {
                 Looper.prepare();
                 if (!connected) {
-                    Log.d(TAG, "Before print: " + mPreferenceHelper.getPrinter().getName());
                     TscDll.openport(mPreferenceHelper.getPrinter().getMacAddress());
                 }
-                TscDll.downloadpcx("UL.PCX");
+
                 try {
+                    boolean firstReceipt = true;
+                    while (quantityNo > 0){
+                        // print copy
 
-//                        TscDll.setup(paperWidth, 200, printerSpeed, printerDensity, 0, 0, 0);
-                    TscDll.setup(paperWidth, Math.round(getPaperHeight()),
-                            printerSpeed, printerDensity, 0, 0, 0);
-                    TscDll.clearbuffer();
-                    TscDll.sendcommand("PUTPCX 100,300,\"UL.PCX\"\n");
+                        // print logo
+//                        TscDll.clearbuffer();
+//                        TscDll.setup(0, 0,
+//                                printerSpeed, 5, 0, 0, 0);
+//                        TscDll.sendbitmap_resize(240, 5,
+//                                BitmapFactory.decodeResource(getResources(), R.drawable.app_logo_em),
+//                                350, 350);
+//                        TscDll.printlabel(1, 1);
 
+                        if (firstReceipt) {
+                            TscDll.clearbuffer();
+                            TscDll.sendcommand("TEXT 0,0,\"A.FNT\",0,0,0\r\n");
+                            TscDll.printlabel(1, 1);
+                            firstReceipt = false;
+                        }
 
-                    TscDll.sendbitmap_resize(0, 0, bitmap,
-                           imageWidth, Math.round(getImageHeight()));
-                    TscDll.printlabel(1, quantityNo);
-                    TscDll.clearbuffer();
-                    TscDll.setup(paperWidth, 40,
-                            printerSpeed, 4, 0, 0, 0);
-                    String content = "مؤسسـة حسـين حـــامد الحـربى للحـلويـات" + "\n" +
-                            "فاتورة ضريبية رقم : " + textInvoiceNumber.getText().toString() + "\n" +
-                            "اسم العميل : " + textClientName.getText().toString() + "\n" +
-                            "الرقم الضريبي : " + "310213123900003" + "\n" +
-                            "التاريخ : " + textDate.getText().toString() + "\n" +
-                            "التوقيت : " + textTime.getText().toString() + "\n" +
-                            "اجمالي المبلغ شامل الضريبة : " + textTotalAfter.getText().toString()
-                            + "\n" +
-                            "القيمة الضريبية : " + textTax.getText().toString();
-                    TscDll.qrcode(280,
-                            0, "L", "4", "A","0","M2",
-                            "S7", content);
-                    TscDll.printlabel(1, quantityNo);
-//                        TscDll.closeport();
+                        TscDll.clearbuffer();
+                        TscDll.setup(paperWidth, Math.round(getPaperHeight()),
+                                printerSpeed, printerDensity, 0, 0, 0);
+                        TscDll.sendbitmap_resize(0, 0, bitmap,
+                                imageWidth, Math.round(getImageHeight()));
+                        TscDll.printlabel(1, 1);
 
+                        TscDll.clearbuffer();
+                        TscDll.setup(paperWidth, 50,
+                                printerSpeed, 4, 0, 0, 0);
+                        String content = "مؤسسـة حسـين حـــامد الحـربى للحـلويـات" + "\n" +
+                                "فاتورة ضريبية رقم : " + textInvoiceNumber.getText().toString() + "\n" +
+                                "اسم العميل : " + textClientName.getText().toString() + "\n" +
+                                "الرقم الضريبي : " + "310213123900003" + "\n" +
+                                "التاريخ : " + textDate.getText().toString() + "\n" +
+                                "التوقيت : " + textTime.getText().toString() + "\n" +
+                                "اجمالي المبلغ شامل الضريبة : " + textTotalAfter.getText().toString()
+                                + "\n" +
+                                "القيمة الضريبية : " + textTax.getText().toString();
+                        TscDll.qrcode(280,
+                                0, "L", "4", "A","0","M2",
+                                "S7", content);
+                        TscDll.printlabel(1, 1);
+                        quantityNo--;
+                    }
                 } catch (Exception e) {
                     runOnUiThread(new Runnable(){
                         public void run() {
@@ -440,15 +421,16 @@ public class TaskPrintActivity extends BaseActivity {
 
                     e.printStackTrace();
                 }
-
-
+                finally {
+                    if (invoiceModel != null) {
+                        quantityNo = getCopyNo(invoiceModel.isCash());
+                    } else if (clientInvoiceModel != null) {
+                        quantityNo = getCopyNo(!clientInvoiceModel.getIsCredit());
+                    }
+                }
             });
             mPrintThread.start();
-
-
         }, 1000);
-
-
     }
 
 
@@ -494,10 +476,9 @@ public class TaskPrintActivity extends BaseActivity {
 
     int getCopyNo(boolean isCash) {
         if (isCash)
-            return 1;
-
-        else
             return 2;
+        else
+            return 3;
     }
 
     public String getCurrentDate() {

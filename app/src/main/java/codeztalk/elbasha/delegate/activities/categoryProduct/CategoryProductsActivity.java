@@ -172,7 +172,8 @@ public class CategoryProductsActivity extends BaseActivity {
         recyclerCategories.setLayoutManager(mLayoutManager);
         recyclerProducts.setLayoutManager(productLayoutManager);
 
-        categoryAdapter = new CategoryAdapter(categoryArrayList, this, CategoryProductsActivity.this);
+        categoryAdapter = new CategoryAdapter(categoryArrayList, this,
+                CategoryProductsActivity.this);
         productCategoryAdapter = new ProductCategoryAdapter(productArrayList,
                 this, CategoryProductsActivity.this);
 
@@ -193,12 +194,7 @@ public class CategoryProductsActivity extends BaseActivity {
     private void getProductsOffline() {
         categoryArrayList.addAll(db.getAllCategory());
         categoryAdapter.notifyDataSetChanged();
-
         getProducts(categoryArrayList.get(0).getCategoryNameEN());
-
-
-        Log.e("off", "off" + productArrayList.size());
-
     }
 
     public void calculatePrice(List<Product> inventoryList) {
