@@ -192,16 +192,12 @@ public class ClientProfileActivity extends BaseActivity {
 
                     invoiceModel.setInvoiceNumber(clientInvoiceModel.getInvoiceTaxNumber());
 
-
-
                     Intent i = new Intent(ClientProfileActivity.this, CreditInvoiceActivity.class);
                      i.putExtra("invoiceModel", invoiceModel);
                      startActivity(i);
 
 
                 }
-
-
             }
 
             @Override

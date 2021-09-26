@@ -288,13 +288,9 @@ codeztalk/elbasha/delegate/adapter/InvoiceAdapter.java
  codeztalk.elbasha.delegate.adapter.InvoiceAdapter
  codeztalk.elbasha.delegate.adapter.InvoiceAdapter$1
  codeztalk.elbasha.delegate.adapter.InvoiceAdapter$DataObjectHolder
-codeztalk/elbasha/delegate/fragments/CreditInvoicesFragment.java
- codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment
- codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$1
- codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$2
- codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$3
- codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$4
- codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$5
+codeztalk/elbasha/delegate/activities/printer/TaskPrintActivity.java
+ codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity
+ codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity$1
 codeztalk/elbasha/delegate/activities/AddInvoiceActivity.java
  codeztalk.elbasha.delegate.activities.AddInvoiceActivity
  codeztalk.elbasha.delegate.activities.AddInvoiceActivity$1
@@ -302,17 +298,21 @@ codeztalk/elbasha/delegate/activities/AddInvoiceActivity.java
  codeztalk.elbasha.delegate.activities.AddInvoiceActivity$3
  codeztalk.elbasha.delegate.activities.AddInvoiceActivity$4
  codeztalk.elbasha.delegate.activities.AddInvoiceActivity$5
-codeztalk/elbasha/delegate/activities/credit/CreditInvoiceActivity.java
- codeztalk.elbasha.delegate.activities.credit.CreditInvoiceActivity
-codeztalk/elbasha/delegate/activities/printer/TaskPrintActivity.java
- codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity
- codeztalk.elbasha.delegate.activities.printer.TaskPrintActivity$1
 codeztalk/elbasha/delegate/activities/printer/DeviceListActivity.java
  codeztalk.elbasha.delegate.activities.printer.DeviceListActivity
  codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$1
  codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$2
  codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$3
  codeztalk.elbasha.delegate.activities.printer.DeviceListActivity$4
+codeztalk/elbasha/delegate/fragments/CreditInvoicesFragment.java
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$1
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$2
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$3
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$4
+ codeztalk.elbasha.delegate.fragments.CreditInvoicesFragment$5
+codeztalk/elbasha/delegate/activities/credit/CreditInvoiceActivity.java
+ codeztalk.elbasha.delegate.activities.credit.CreditInvoiceActivity
 codeztalk/elbasha/delegate/activities/ClientProfileActivity.java
  codeztalk.elbasha.delegate.activities.ClientProfileActivity
  codeztalk.elbasha.delegate.activities.ClientProfileActivity$1

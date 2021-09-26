@@ -158,8 +158,6 @@ public class TaskPrintActivity extends BaseActivity {
             return;
         }
 
-
-        //scan button
         scan.setOnClickListener(view ->
         {
             if (TscDll.IsConnected) {
@@ -167,6 +165,7 @@ public class TaskPrintActivity extends BaseActivity {
             }
             startDiscovery();
         });
+
         task_button_print.setOnClickListener(v -> {
             shareImage(linearInvoice);
         });
@@ -209,7 +208,6 @@ public class TaskPrintActivity extends BaseActivity {
             if (connected) {
                 connected = false;
                 TscDll.closeport();
-                //TscDll = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -225,13 +223,11 @@ public class TaskPrintActivity extends BaseActivity {
                 if (connected) {
                     connected = false;
                     TscDll.closeport();
-                    //TscDll = null;
                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //mBluetoothAdapter.disable();
         }
 
         if (invoiceModel != null) {
@@ -353,8 +349,6 @@ public class TaskPrintActivity extends BaseActivity {
         }
         view.draw(canvas);
 
-        quantityNo = 1;
-
         new Handler().postDelayed(() -> {
             if (mPrintThread != null)
                 mPrintThread.interrupt();
@@ -369,15 +363,6 @@ public class TaskPrintActivity extends BaseActivity {
                     boolean firstReceipt = true;
                     while (quantityNo > 0){
                         // print copy
-
-                        // print logo
-//                        TscDll.clearbuffer();
-//                        TscDll.setup(0, 0,
-//                                printerSpeed, 5, 0, 0, 0);
-//                        TscDll.sendbitmap_resize(240, 5,
-//                                BitmapFactory.decodeResource(getResources(), R.drawable.app_logo_em),
-//                                350, 350);
-//                        TscDll.printlabel(1, 1);
 
                         if (firstReceipt) {
                             TscDll.clearbuffer();

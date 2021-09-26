@@ -19,9 +19,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import codeztalk.elbasha.delegate.R;
+import codeztalk.elbasha.delegate.helper.PreferenceHelper;
+import codeztalk.elbasha.delegate.models.ConnectedDevice;
 
 public class DeviceCreditActivity extends AppCompatActivity {
     // Debugging
@@ -35,9 +39,14 @@ public class DeviceCreditActivity extends AppCompatActivity {
     private ArrayAdapter<String> mPairedDevicesArrayAdapter;
     private ArrayAdapter<String> mNewDevicesArrayAdapter;
 
+    private List<ConnectedDevice> mPairedDevices = new ArrayList<>();
+    private List<ConnectedDevice> mNewDevices = new ArrayList<>();
+
     Button scanButton;
     String scanButtonTextScan = "Scan";
     String scanButtonTextStop = "STOP";
+
+    public PreferenceHelper mPreferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +64,8 @@ public class DeviceCreditActivity extends AppCompatActivity {
         mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.item_device_name);
         mNewDevicesArrayAdapter = new ArrayAdapter<String>(this, R.layout.item_device_name);
 
+        mPreferenceHelper = new PreferenceHelper(this);
+
         // Find and set up the ListView for paired devices
         ListView pairedListView =  findViewById(R.id.paired_devices);
         pairedListView.setAdapter(mPairedDevicesArrayAdapter);
@@ -63,7 +74,7 @@ public class DeviceCreditActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mBtAdapter.cancelDiscovery();
 
-                // Get the device MAC address, which is the last 17 chars in the View
+                /*// Get the device MAC address, which is the last 17 chars in the View
                 String info = ((TextView) view).getText().toString();
                 CreditInvoiceActivity.address = info.substring(info.length() - 17);
 
@@ -76,6 +87,9 @@ public class DeviceCreditActivity extends AppCompatActivity {
                 //addLog("setResult=OK");
                 // Set result and finish this Activity
                 setResult(Activity.RESULT_OK, intent);
+                finish();*/
+                mPreferenceHelper.setPrinter(mPairedDevices.get(position));
+                CreditInvoiceActivity.mSelectedDevice = mPairedDevices.get(position);
                 finish();
 
             }
@@ -89,7 +103,7 @@ public class DeviceCreditActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mBtAdapter.cancelDiscovery();
 
-                // Get the device MAC address, which is the last 17 chars in the View
+                /*// Get the device MAC address, which is the last 17 chars in the View
                 String info = ((TextView) view).getText().toString();
                 CreditInvoiceActivity.address = info.substring(info.length() - 17);
 
@@ -100,6 +114,9 @@ public class DeviceCreditActivity extends AppCompatActivity {
                 //addLog("setResult=OK");
                 // Set result and finish this Activity
                 setResult(Activity.RESULT_OK, intent);
+                finish();*/
+                mPreferenceHelper.setPrinter(mNewDevices.get(position));
+                CreditInvoiceActivity.mSelectedDevice = mNewDevices.get(position);
                 finish();
 
             }
@@ -171,6 +188,7 @@ public class DeviceCreditActivity extends AppCompatActivity {
             findViewById(R.id.title_paired_devices).setVisibility(View.VISIBLE);
             for (BluetoothDevice device : pairedDevices) {
                 mPairedDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                mPairedDevices.add(new ConnectedDevice(device.getName(), device.getAddress()));
             }
         } else {
             String noDevices = getResources().getText(R.string.none_paired).toString();
@@ -246,6 +264,7 @@ public class DeviceCreditActivity extends AppCompatActivity {
                 if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
                     // addLog("adding new bonded device: " + device.getName() + " " + device.getAddress());
                     mNewDevicesArrayAdapter.add(device.getName() + "\n" + device.getAddress());
+                    mNewDevices.add(new ConnectedDevice(device.getName(), device.getAddress()));
                 }
                 // When discovery is finished, change the Activity title
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {

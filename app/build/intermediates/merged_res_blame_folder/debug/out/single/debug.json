@@ -24,12 +24,12 @@
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\layout\\fragment_profile.xml"
     },
     {
-        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_envelope.xml.flat",
-        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\ic_envelope.xml"
-    },
-    {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_upload.xml.flat",
         "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\ic_upload.xml"
+    },
+    {
+        "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_envelope.xml.flat",
+        "source": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\src\\main\\res\\drawable\\ic_envelope.xml"
     },
     {
         "merged": "C:\\Users\\muham\\Downloads\\ElBash Android App\\Delegate\\Delegate\\app\\build\\intermediates\\merged_res\\debug\\layout_toolbar_search.xml.flat",
